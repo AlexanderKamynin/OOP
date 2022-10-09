@@ -6,7 +6,6 @@ class MapEvent : public IEvent
 {
 public:
 	MapEvent(Player* player);
-
 protected:
 	Player* player;
 };

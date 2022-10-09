@@ -7,5 +7,7 @@ class Trap : public MapEvent
 public:
 	Trap(Player* player) : MapEvent(player) {};
 
-	void React();
+	void React() override;
+
+	~Trap() = default;
 };

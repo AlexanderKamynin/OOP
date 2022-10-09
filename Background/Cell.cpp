@@ -6,13 +6,6 @@ Cell::Cell(bool passability, IEvent* event)
     this->event = event;
 }
 
-void Cell::play_event()
-{
-    if (this->event != nullptr) {
-        this->event->React();
-    }
-}
-
 bool Cell::get_passability()
 {
     return this->passability;

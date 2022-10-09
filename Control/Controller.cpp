@@ -16,44 +16,55 @@ void Controller::create_field(int height, int width) {
     this->field->get_field()[2][3]->set_passability(false);
     //
 
-    Trap event(this->player);
-    this->field->get_field()[3][3]->set_event(&event);
+    //проверочное задание ловушки
+    Trap* trap = new Trap(player);
+    this->field->get_field()[0][1]->set_event(trap);
+    //
 
     this->field_view = new FieldView(this->field);
 
 }
 
 void Controller::move_player(CommandReader::COMMANDS direction) {
+    std::pair<int, int> cur_position = field->get_player_position();
+    int new_x = cur_position.first;
+    int new_y = cur_position.second;
     if (direction == CommandReader::COMMANDS::LEFT) {
-        std::pair<int, int> cur_position = field->get_player_position();
-        int new_x = cur_position.first - 1;
-        int new_y = cur_position.second;
+        new_x -= 1;
         field->set_player_position(new_x, new_y);
     }
     if (direction == CommandReader::COMMANDS::RIGHT) {
-        std::pair<int, int> cur_position = field->get_player_position();
-        int new_x = cur_position.first + 1;
-        int new_y = cur_position.second;
+        new_x += 1;
         field->set_player_position(new_x, new_y);
     }
     if (direction == CommandReader::COMMANDS::DOWN) {
-        std::pair<int, int> cur_position = field->get_player_position();
-        int new_x = cur_position.first;
-        int new_y = cur_position.second + 1;
+        new_y += 1;
         field->set_player_position(new_x, new_y);
     }
     if (direction == CommandReader::COMMANDS::UP) {
-        std::pair<int, int> cur_position = field->get_player_position();
-        int new_x = cur_position.first;
-        int new_y = cur_position.second - 1;
+        new_y -= 1;
         field->set_player_position(new_x, new_y);
     }
+    cur_position = field->get_player_position(); //переполучаем координаты игрока с учетом зацикливания карты
+    play_event(field->get_field()[cur_position.second][cur_position.first]->get_event());
+    field->get_field()[cur_position.second][cur_position.first]->set_event(nullptr); //удаление ловушки после ее отработки, в будущем нужно поправить !!!!
+    print_player_info();
 }
 
 void Controller::update_visualization() {
     this->field_view->draw_field();
 }
 
+void Controller::print_player_info()
+{
+    std::cout << "Здоровье игрока: " << player->get_health() << '\n';
+}
+
+void Controller::play_event(IEvent* event) {
+    if (event != nullptr) {
+        event->React();
+    }
+}
 
 Controller::~Controller() {
     delete field_view;

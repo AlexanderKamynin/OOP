@@ -17,6 +17,10 @@ public:
 
     void update_visualization();
 
+    void print_player_info();
+
+    void play_event(IEvent* event);
+
     ~Controller();
 private:
     Player* player;

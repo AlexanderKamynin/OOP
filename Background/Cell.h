@@ -7,8 +7,6 @@ class Cell
 public:
     Cell(bool passability = true, IEvent* event = nullptr);
 
-    void play_event();
-
     bool get_passability();
 
     void set_passability(bool value);
