@@ -30,13 +30,10 @@
     <ClInclude Include="Events\IEvent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Events\MapEvent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Player\Player.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Events\Trap.h">
+    <ClInclude Include="Events\MapEvents\Trap\Trap.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Control\Controller.h">
@@ -46,6 +43,18 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Control\Mediator.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\MapEvents\MapEvent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\MapEvents\ITreasure\ITreasure.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\MapEvents\ITreasure\UnlockedTreasure.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\MapEvents\ITreasure\LockedTreasure.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,13 +71,13 @@
     <ClCompile Include="Background\FieldView.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Events\MapEvent.cpp">
+    <ClCompile Include="Events\MapEvents\MapEvent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Player\Player.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Events\Trap.cpp">
+    <ClCompile Include="Events\MapEvents\Trap\Trap.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Control\Controller.cpp">
@@ -81,6 +90,12 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\MapEvents\ITreasure\UnlockedTreasure.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\MapEvents\ITreasure\LockedTreasure.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

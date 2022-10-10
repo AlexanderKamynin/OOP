@@ -3,7 +3,9 @@
 #include "../Background/Field.h"
 #include "../Background/Cell.h"
 #include "../Background/FieldView.h"
-#include "../Events/Trap.h"
+#include "../Events/MapEvents/Trap/Trap.h"
+#include "../Events/MapEvents/ITreasure/LockedTreasure.h"
+#include "../Events/MapEvents/ITreasure/UnlockedTreasure.h"
 #include "CommandReader.h"
 #include <string>
 
@@ -20,6 +22,8 @@ public:
     void print_player_info();
 
     void play_event(IEvent* event);
+
+    bool event_is_one_time(IEvent* event);
 
     ~Controller();
 private:

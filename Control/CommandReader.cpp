@@ -20,6 +20,20 @@ int CommandReader::read_size() {
     return -1;
 }
 
+bool CommandReader::read_agree()
+{
+    std::string agree = "";
+    while (1) {
+        std::cin >> agree;
+        if (agree == "yes") {
+            return true;
+        }
+        if (agree == "no") {
+            return false;
+        }
+    }
+}
+
 bool CommandReader::string_is_digit(std::string str) {
     for (char c : str)
     {

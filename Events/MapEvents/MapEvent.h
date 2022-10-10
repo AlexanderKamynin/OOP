@@ -1,6 +1,6 @@
 #pragma once
-#include "IEvent.h"
-#include "../Player/Player.h"
+#include "../IEvent.h"
+#include "../../Player/Player.h"
 
 class MapEvent : public IEvent
 {

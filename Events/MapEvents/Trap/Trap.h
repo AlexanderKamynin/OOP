@@ -1,5 +1,5 @@
 #pragma once
-#include "MapEvent.h"
+#include "../MapEvent.h"
 
 
 class Trap : public MapEvent

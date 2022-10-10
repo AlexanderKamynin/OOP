@@ -134,10 +134,13 @@
     <ClInclude Include="Control\CommandReader.h" />
     <ClInclude Include="Control\Controller.h" />
     <ClInclude Include="Events\IEvent.h" />
-    <ClInclude Include="Events\MapEvent.h" />
     <ClInclude Include="Control\Mediator.h" />
+    <ClInclude Include="Events\MapEvents\MapEvent.h" />
+    <ClInclude Include="Events\MapEvents\ITreasure\ITreasure.h" />
+    <ClInclude Include="Events\MapEvents\ITreasure\LockedTreasure.h" />
     <ClInclude Include="Player\Player.h" />
-    <ClInclude Include="Events\Trap.h" />
+    <ClInclude Include="Events\MapEvents\Trap\Trap.h" />
+    <ClInclude Include="Events\MapEvents\ITreasure\UnlockedTreasure.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background\Field.cpp" />
@@ -146,11 +149,13 @@
     <ClCompile Include="Background\FieldView.cpp" />
     <ClCompile Include="Control\CommandReader.cpp" />
     <ClCompile Include="Control\Controller.cpp" />
-    <ClCompile Include="Events\MapEvent.cpp" />
+    <ClCompile Include="Events\MapEvents\MapEvent.cpp" />
     <ClCompile Include="Control\Mediator.cpp" />
+    <ClCompile Include="Events\MapEvents\ITreasure\LockedTreasure.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player\Player.cpp" />
-    <ClCompile Include="Events\Trap.cpp" />
+    <ClCompile Include="Events\MapEvents\Trap\Trap.cpp" />
+    <ClCompile Include="Events\MapEvents\ITreasure\UnlockedTreasure.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

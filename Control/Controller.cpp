@@ -17,37 +17,52 @@ void Controller::create_field(int height, int width) {
     //
 
     //проверочное задание ловушки
-    Trap* trap = new Trap(player);
-    this->field->get_field()[0][1]->set_event(trap);
+    Trap* trap1 = new Trap(player);
+    Trap* trap2 = new Trap(player);
+    this->field->get_field()[0][1]->set_event(trap1);
+    this->field->get_field()[0][2]->set_event(trap2);
     //
 
+    //проверочное задание сокровищ
+    UnlockedTreasure* unlocked = new UnlockedTreasure(player);
+    LockedTreasure* locked = new LockedTreasure(player);
+    unlocked->set_gold_in_treasure(500);
+    locked->set_gold_in_treasure(1000);
+    this->field->get_field()[5][6]->set_event(unlocked);
+    this->field->get_field()[0][3]->set_event(locked);
+    //
     this->field_view = new FieldView(this->field);
 
 }
 
 void Controller::move_player(CommandReader::COMMANDS direction) {
     std::pair<int, int> cur_position = field->get_player_position();
-    int new_x = cur_position.first;
-    int new_y = cur_position.second;
+    int first_x = cur_position.first;
+    int first_y = cur_position.second;
+
     if (direction == CommandReader::COMMANDS::LEFT) {
-        new_x -= 1;
-        field->set_player_position(new_x, new_y);
+        field->set_player_position(first_x - 1, first_y);
     }
     if (direction == CommandReader::COMMANDS::RIGHT) {
-        new_x += 1;
-        field->set_player_position(new_x, new_y);
+        field->set_player_position(first_x + 1, first_y);
     }
     if (direction == CommandReader::COMMANDS::DOWN) {
-        new_y += 1;
-        field->set_player_position(new_x, new_y);
+        field->set_player_position(first_x, first_y + 1);
     }
     if (direction == CommandReader::COMMANDS::UP) {
-        new_y -= 1;
-        field->set_player_position(new_x, new_y);
+        field->set_player_position(first_x, first_y - 1);
     }
     cur_position = field->get_player_position(); //переполучаем координаты игрока с учетом зацикливания карты
-    play_event(field->get_field()[cur_position.second][cur_position.first]->get_event());
-    field->get_field()[cur_position.second][cur_position.first]->set_event(nullptr); //удаление ловушки после ее отработки, в будущем нужно поправить !!!!
+    if (first_x != cur_position.first or first_y != cur_position.second) {
+        player->increase_step();
+    }
+
+    IEvent* event = field->get_field()[cur_position.second][cur_position.first]->get_event();
+    play_event(event);
+    if (event_is_one_time(event)){
+        delete event;
+        field->get_field()[cur_position.second][cur_position.first]->set_event(nullptr);
+    }
     print_player_info();
 }
 
@@ -58,12 +73,26 @@ void Controller::update_visualization() {
 void Controller::print_player_info()
 {
     std::cout << "Здоровье игрока: " << player->get_health() << '\n';
+    std::cout << "Золото игрока: " << player->get_gold() << '\n';
+    std::cout << "Отмычки игрока: " << player->get_passkey() << '\n';
+    std::cout << "Пройдено шагов: " << player->get_step() << '\n';
 }
 
 void Controller::play_event(IEvent* event) {
     if (event != nullptr) {
         event->React();
     }
+}
+
+bool Controller::event_is_one_time(IEvent* event)
+{
+    if (dynamic_cast<Trap*>(event) or dynamic_cast<UnlockedTreasure*>(event)) {
+        return true;
+    }
+    if (dynamic_cast<LockedTreasure*>(event)) {
+        return dynamic_cast<LockedTreasure*>(event)->is_unlock();
+    }
+    return false;
 }
 
 Controller::~Controller() {

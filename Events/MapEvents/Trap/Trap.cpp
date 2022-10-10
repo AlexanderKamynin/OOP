@@ -4,5 +4,5 @@
 void Trap::React()
 {
 	std::cout << "Óïñ! Ëîâóøêà..." << '\n';
-	player->player_damage(1);
+	player->decrease_health(1);
 }

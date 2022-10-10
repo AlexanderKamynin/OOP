@@ -1,5 +1,6 @@
-#pragma once
+﻿#pragma once
 #include "Cell.h"
+#include "../Events/MapEvents/ITreasure/ITreasure.h"
 #include <iostream>
 
 
@@ -13,4 +14,5 @@ public:
 private:
     char passableCell = '.';
     char impassableCell = 'x';
+    char treasureCell = 't';
 };
