@@ -20,7 +20,7 @@ public:
 
     int get_passkey();
 
-    void add_passkey();
+    void add_passkey(int passkey);
 
     void take_passkey();
 

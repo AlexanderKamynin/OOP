@@ -34,9 +34,13 @@ void Controller::create_field(int height, int width) {
 
     //проверочное создание врагов
     Rat* rat = new Rat(player);
+    Warrion* warrion = new Warrion(player);
+
     rat->set_passkey();
     rat->set_gold(10);
+    
     this->field->get_field()[7][7]->set_event(rat);
+    this->field->get_field()[6][6]->set_event(warrion);
     //
 
     this->field_view = new FieldView(this->field);

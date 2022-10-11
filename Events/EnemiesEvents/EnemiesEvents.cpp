@@ -82,7 +82,7 @@ void EnemiesEvents::before_battle(bool battle_result) {
             std::cout << " Вы получили " << this->gold << " золота.";
         }
         if (this->passkey > 0) {
-            player->add_passkey();
+            player->add_passkey(this->passkey);
             std::cout << " Вы нашли " << this->passkey << " отмычек.";
         }
         std::cout << '\n';

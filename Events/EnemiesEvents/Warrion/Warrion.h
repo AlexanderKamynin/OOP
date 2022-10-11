@@ -3,10 +3,10 @@
 #include <iostream>
 
 
-class Rat : public EnemiesEvents
+class Warrion : public EnemiesEvents
 {
 public:
-	Rat(Player* player) : EnemiesEvents(player) {};
+	Warrion(Player* player) : EnemiesEvents(player) {};
 
 	void React() override;
 
@@ -17,3 +17,4 @@ public:
 private:
 	void set_stats() override;
 };
+

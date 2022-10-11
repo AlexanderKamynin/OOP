@@ -23,5 +23,6 @@ protected:
 	void preview_battle();
 	void battle();
 	void before_battle(bool battle_result);
+	virtual void set_stats() = 0;
 };
 

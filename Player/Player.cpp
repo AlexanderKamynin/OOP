@@ -47,9 +47,9 @@ int Player::get_passkey()
     return this->passkey;
 }
 
-void Player::add_passkey()
+void Player::add_passkey(int passkey)
 {
-    this->passkey += 1;
+    this->passkey += passkey;
 }
 
 void Player::take_passkey()
