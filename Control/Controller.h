@@ -6,6 +6,7 @@
 #include "../Events/MapEvents/Trap/Trap.h"
 #include "../Events/MapEvents/ITreasure/LockedTreasure.h"
 #include "../Events/MapEvents/ITreasure/UnlockedTreasure.h"
+#include "../Events/EnemiesEvents/Rat/Rat.h"
 #include "CommandReader.h"
 #include <string>
 

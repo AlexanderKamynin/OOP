@@ -4,7 +4,7 @@ class Player {
 public:
     Player();
 
-    int player_attack();
+    int get_player_attack();
 
     void decrease_health(int damage);
 
@@ -23,6 +23,8 @@ public:
     void add_passkey();
 
     void take_passkey();
+
+    bool is_dead();
 
     ~Player() = default;
 private:

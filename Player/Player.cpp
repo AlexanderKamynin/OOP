@@ -8,13 +8,13 @@ Player::Player() {
     this->passkey = 0;
 }
 
-int Player::player_attack()
+int Player::get_player_attack()
 {
     return this->attack;
 }
 
 void Player::decrease_health(int damage) {
-    this->hp = this->hp - damage;
+    this->hp -= damage;
 }
 
 int Player::get_health()
@@ -55,5 +55,13 @@ void Player::add_passkey()
 void Player::take_passkey()
 {
     this->passkey -= 1;
+}
+
+bool Player::is_dead()
+{
+    if (this->hp <= 0) {
+        return true;
+    }
+    return false;
 }
 

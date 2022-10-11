@@ -31,6 +31,14 @@ void Controller::create_field(int height, int width) {
     this->field->get_field()[5][6]->set_event(unlocked);
     this->field->get_field()[0][3]->set_event(locked);
     //
+
+    //проверочное создание врагов
+    Rat* rat = new Rat(player);
+    rat->set_passkey();
+    rat->set_gold(10);
+    this->field->get_field()[7][7]->set_event(rat);
+    //
+
     this->field_view = new FieldView(this->field);
 
 }
@@ -63,10 +71,10 @@ void Controller::move_player(CommandReader::COMMANDS direction) {
         delete event;
         field->get_field()[cur_position.second][cur_position.first]->set_event(nullptr);
     }
-    print_player_info();
 }
 
 void Controller::update_visualization() {
+    print_player_info();
     this->field_view->draw_field();
 }
 
@@ -91,6 +99,9 @@ bool Controller::event_is_one_time(IEvent* event)
     }
     if (dynamic_cast<LockedTreasure*>(event)) {
         return dynamic_cast<LockedTreasure*>(event)->is_unlock();
+    }
+    if (dynamic_cast<EnemiesEvents*>(event)) {
+        return dynamic_cast<EnemiesEvents*>(event)->is_dead();
     }
     return false;
 }

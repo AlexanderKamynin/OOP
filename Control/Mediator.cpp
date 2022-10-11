@@ -30,6 +30,7 @@ void Mediator::game() {
         }
         if (current_command == CommandReader::COMMANDS::LEFT || current_command == CommandReader::COMMANDS::RIGHT || current_command == CommandReader::COMMANDS::UP
             || current_command == CommandReader::COMMANDS::DOWN) {
+            system("cls");
             controller->move_player(current_command);
             controller->update_visualization();
         }
