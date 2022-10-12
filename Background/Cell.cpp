@@ -25,3 +25,7 @@ void Cell::set_event(IEvent* event)
 {
     this->event = event;
 }
+
+Cell::~Cell() {
+    delete this->event;
+}

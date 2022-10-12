@@ -1,7 +1,5 @@
 #include "Control/Mediator.h"
 
-
-
 int main()
 {
     setlocale(LC_ALL, "RU");

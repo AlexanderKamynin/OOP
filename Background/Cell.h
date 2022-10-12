@@ -15,7 +15,7 @@ public:
 
     void set_event(IEvent* event);
 
-    ~Cell() = default;
+    ~Cell();
 private:
     IEvent* event; //указатель на событие
     bool passability; //проходимость клетки

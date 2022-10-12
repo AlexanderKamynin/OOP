@@ -5,52 +5,24 @@ Controller::Controller() {
     this->field_view = nullptr;
     this->field = nullptr;
     this->player = new Player;
-    this->defeat_event = new DefeatEvent(this->player);
-    this->exit_event = new ExitEvent();
+    this->map_event_factory = new MapEventFactory(this->player);
+    this->enemies_event_factory = new EnemiesEventFactory(this->player);
+    GameProcessEventFactory* factory = new GameProcessEventFactory(this->player);
+    this->defeat_event = dynamic_cast<DefeatEvent* >(factory->createDefeatEvent());
+    this->exit_event = dynamic_cast<ExitEvent*>(factory->createExitEvent());
+    delete factory;
 }
 
 void Controller::create_field(int height, int width) {
     this->field = new Field(height, width);
-    this->field->get_field()[9][9]->set_event(exit_event);
 
     //проверочное задание клеткам проходимости
     this->field->get_field()[5][5]->set_passability(false);
     this->field->get_field()[1][0]->set_passability(false);
     this->field->get_field()[2][3]->set_passability(false);
     //
-
-    //проверочное задание ловушки
-    Trap* trap1 = new Trap(player);
-    Trap* trap2 = new Trap(player);
-    this->field->get_field()[0][1]->set_event(trap1);
-    this->field->get_field()[0][2]->set_event(trap2);
-    //
-
-    //проверочное задание сокровищ
-    UnlockedTreasure* unlocked = new UnlockedTreasure(player);
-    LockedTreasure* locked = new LockedTreasure(player);
-    unlocked->set_gold_in_treasure(500);
-    locked->set_gold_in_treasure(1000);
-    this->field->get_field()[5][6]->set_event(unlocked);
-    this->field->get_field()[0][3]->set_event(locked);
-    //
-
-    //проверочное создание врагов
-    Rat* rat = new Rat(player);
-    Warrion* warrion = new Warrion(player);
-    Boss* boss = new Boss(player);
-
-    rat->set_passkey();
-    rat->set_gold(10);
-    boss->set_gold(15000);
-    
-    this->field->get_field()[7][7]->set_event(rat);
-    this->field->get_field()[6][6]->set_event(warrion);
-    this->field->get_field()[8][8]->set_event(boss);
-    //
-
+    create_events();
     this->field_view = new FieldView(this->field);
-
 }
 
 void Controller::move_player(CommandReader::COMMANDS direction) {
@@ -96,6 +68,29 @@ void Controller::print_player_info()
     std::cout << "Пройдено шагов: " << player->get_step() << '\n';
 }
 
+void Controller::create_events() {
+    //задание выхода
+    this->field->get_field()[9][9]->set_event(exit_event);
+    //
+
+    // 
+    //проверочное задание ловушки
+    this->field->get_field()[0][1]->set_event(map_event_factory->createTrap());
+    this->field->get_field()[0][2]->set_event(map_event_factory->createTrap());
+    //
+
+    //проверочное задание сокровищ
+    this->field->get_field()[5][6]->set_event(map_event_factory->createUnlockedTreasure());
+    this->field->get_field()[0][3]->set_event(map_event_factory->createLockedTreasure());
+    //
+
+    //проверочное создание врагов
+    this->field->get_field()[7][7]->set_event(enemies_event_factory->createRat());
+    this->field->get_field()[6][6]->set_event(enemies_event_factory->createWarrion());
+    this->field->get_field()[8][8]->set_event(enemies_event_factory->createBoss());
+    //
+}
+
 void Controller::play_event(IEvent* event) {
     if (event != nullptr) {
         event->React();
@@ -111,8 +106,10 @@ bool Controller::event_is_one_time(IEvent* event)
         return dynamic_cast<LockedTreasure*>(event)->is_unlock();
     }
     if (dynamic_cast<EnemiesEvents*>(event)) {
-        if (dynamic_cast<Boss*>(event)->is_dead()) {
-            this->exit_event->boss_is_defeat();
+        if (dynamic_cast<Boss*>(event)) {
+            if (dynamic_cast<Boss*>(event)->is_dead()) {
+                this->exit_event->boss_is_defeat();
+            }
         }
         return dynamic_cast<EnemiesEvents*>(event)->is_dead();
     }
@@ -130,8 +127,10 @@ ExitEvent* Controller::get_exit_event() {
 
 Controller::~Controller() {
     delete field_view;
-    delete defeat_event;
-    delete exit_event;
     delete player;
     delete field;
+    delete map_event_factory;
+    delete enemies_event_factory;
+    delete exit_event;
+    delete defeat_event;
 }

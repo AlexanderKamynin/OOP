@@ -15,10 +15,10 @@ void ExitEvent::React()
 	}
 	else if (boss_defeat) {
 		this->activate = true;
-		std::cout << "Поздравляем! Вы победили :)";
+		std::cout << "Поздравляем! Вы победили :)" << '\n';
 	}
 	else {
-		std::cout << "Босс еще не побежден...";
+		std::cout << "Босс еще не побежден..." << '\n';
 	}
 }
 

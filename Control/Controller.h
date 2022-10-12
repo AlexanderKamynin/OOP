@@ -3,14 +3,9 @@
 #include "../Background/Field.h"
 #include "../Background/Cell.h"
 #include "../Background/FieldView.h"
-#include "../Events/MapEvents/Trap/Trap.h"
-#include "../Events/MapEvents/ITreasure/LockedTreasure.h"
-#include "../Events/MapEvents/ITreasure/UnlockedTreasure.h"
-#include "../Events/EnemiesEvents/Rat/Rat.h"
-#include "../Events/EnemiesEvents/Warrion/Warrion.h"
-#include "../Events/EnemiesEvents/Boss/Boss.h"
-#include "../Events/GameProcessEvents/DefeatEvent/DefeatEvent.h"
-#include "../Events/GameProcessEvents/ExitEvent/ExitEvent.h"
+#include "../EventsFactory/MapEventFactory/MapEventFactory.h"
+#include "../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
+#include "../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
 #include "CommandReader.h"
 #include <string>
 
@@ -26,6 +21,8 @@ public:
 
     void print_player_info();
 
+    void create_events();
+
     void play_event(IEvent* event);
 
     bool event_is_one_time(IEvent* event);
@@ -39,6 +36,8 @@ private:
     Player* player;
     Field* field;
     FieldView* field_view;
-    DefeatEvent* defeat_event;
+    MapEventFactory* map_event_factory;
+    EnemiesEventFactory* enemies_event_factory;
     ExitEvent* exit_event;
+    DefeatEvent* defeat_event;
 };
