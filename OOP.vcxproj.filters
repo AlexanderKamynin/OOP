@@ -66,6 +66,18 @@
     <ClInclude Include="Events\EnemiesEvents\Warrion\Warrion.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Events\EnemiesEvents\Boss\Boss.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\GameProcessEvents\GameProcessEvents.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\GameProcessEvents\ExitEvent\ExitEvent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\GameProcessEvents\DefeatEvent\DefeatEvent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background\Field.cpp">
@@ -114,6 +126,18 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Events\EnemiesEvents\Warrion\Warrion.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\EnemiesEvents\Boss\Boss.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\GameProcessEvents\GameProcessEvents.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\GameProcessEvents\ExitEvent\ExitEvent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\GameProcessEvents\DefeatEvent\DefeatEvent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

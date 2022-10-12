@@ -5,10 +5,13 @@ Controller::Controller() {
     this->field_view = nullptr;
     this->field = nullptr;
     this->player = new Player;
+    this->defeat_event = new DefeatEvent(this->player);
+    this->exit_event = new ExitEvent();
 }
 
 void Controller::create_field(int height, int width) {
     this->field = new Field(height, width);
+    this->field->get_field()[9][9]->set_event(exit_event);
 
     //проверочное задание клеткам проходимости
     this->field->get_field()[5][5]->set_passability(false);
@@ -35,12 +38,15 @@ void Controller::create_field(int height, int width) {
     //проверочное создание врагов
     Rat* rat = new Rat(player);
     Warrion* warrion = new Warrion(player);
+    Boss* boss = new Boss(player);
 
     rat->set_passkey();
     rat->set_gold(10);
+    boss->set_gold(15000);
     
     this->field->get_field()[7][7]->set_event(rat);
     this->field->get_field()[6][6]->set_event(warrion);
+    this->field->get_field()[8][8]->set_event(boss);
     //
 
     this->field_view = new FieldView(this->field);
@@ -105,13 +111,27 @@ bool Controller::event_is_one_time(IEvent* event)
         return dynamic_cast<LockedTreasure*>(event)->is_unlock();
     }
     if (dynamic_cast<EnemiesEvents*>(event)) {
+        if (dynamic_cast<Boss*>(event)->is_dead()) {
+            this->exit_event->boss_is_defeat();
+        }
         return dynamic_cast<EnemiesEvents*>(event)->is_dead();
     }
     return false;
 }
 
+DefeatEvent* Controller::get_defeat_event()
+{
+    return this->defeat_event;
+}
+
+ExitEvent* Controller::get_exit_event() {
+    return this->exit_event;
+}
+
 Controller::~Controller() {
     delete field_view;
+    delete defeat_event;
+    delete exit_event;
     delete player;
     delete field;
 }

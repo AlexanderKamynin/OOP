@@ -10,7 +10,7 @@ public:
 
 	virtual void set_gold(int gold = 1) = 0;
 
-	virtual void set_passkey() = 0;
+	virtual void set_passkey(int passkey = 1) = 0;
 
 	bool is_dead();
 protected:

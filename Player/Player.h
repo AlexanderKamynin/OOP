@@ -32,5 +32,5 @@ private:
     int hp;
     int attack;
     int step;
-    int passkey; //отмычки
+    int passkey;
 };

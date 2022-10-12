@@ -12,7 +12,7 @@ public:
 
 	void set_gold(int gold = 1) override;
 
-	void set_passkey() override;
+	void set_passkey(int passkey = 1) override;
 
 private:
 	void set_stats() override;

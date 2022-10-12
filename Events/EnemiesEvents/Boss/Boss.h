@@ -3,10 +3,10 @@
 #include <iostream>
 
 
-class Rat : public EnemiesEvents
+class Boss : public EnemiesEvents
 {
 public:
-	Rat(Player* player) : EnemiesEvents(player) {};
+	Boss(Player* player) : EnemiesEvents(player) {};
 
 	void React() override;
 

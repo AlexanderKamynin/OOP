@@ -88,6 +88,6 @@ void EnemiesEvents::before_battle(bool battle_result) {
         std::cout << '\n';
     }
     else {
-        std::cout << "Вы проиграли :(";
+        std::cout << "Вы проиграли :(" << '\n';
     }
 }

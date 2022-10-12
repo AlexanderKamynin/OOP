@@ -2,6 +2,7 @@
 #include "Cell.h"
 #include "../Events/MapEvents/ITreasure/ITreasure.h"
 #include "../Events/EnemiesEvents/EnemiesEvents.h"
+#include "../Events/GameProcessEvents/ExitEvent/ExitEvent.h"
 #include <iostream>
 
 
@@ -17,4 +18,5 @@ private:
     char impassableCell = 'x';
     char treasureCell = 't';
     char enemiesCell = 'e';
+    char exitCell = '!';
 };

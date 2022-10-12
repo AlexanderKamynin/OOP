@@ -12,9 +12,9 @@ void Warrion::set_gold(int gold)
 	this->gold = gold;
 }
 
-void Warrion::set_passkey()
+void Warrion::set_passkey(int passkey)
 {
-	this->passkey += 1;
+	this->passkey += passkey;
 }
 
 void Warrion::set_stats()

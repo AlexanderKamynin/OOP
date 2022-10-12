@@ -10,8 +10,8 @@ void Rat::set_gold(int gold) {
 	this->gold = gold;
 }
 
-void Rat::set_passkey() {
-	this->passkey += 1;
+void Rat::set_passkey(int passkey) {
+	this->passkey += passkey;
 }
 
 void Rat::set_stats() {

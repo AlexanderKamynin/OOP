@@ -131,6 +131,8 @@
     <ClInclude Include="Background\Cell.h" />
     <ClInclude Include="Background\CellView.h" />
     <ClInclude Include="Background\FieldView.h" />
+    <ClInclude Include="Events\GameProcessEvents\DefeatEvent\DefeatEvent.h" />
+    <ClInclude Include="Events\EnemiesEvents\Boss\Boss.h" />
     <ClInclude Include="Control\CommandReader.h" />
     <ClInclude Include="Control\Controller.h" />
     <ClInclude Include="Events\EnemiesEvents\EnemiesEvents.h" />
@@ -139,17 +141,21 @@
     <ClInclude Include="Events\MapEvents\MapEvent.h" />
     <ClInclude Include="Events\MapEvents\ITreasure\ITreasure.h" />
     <ClInclude Include="Events\MapEvents\ITreasure\LockedTreasure.h" />
+    <ClInclude Include="Events\GameProcessEvents\GameProcessEvents.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="Events\MapEvents\Trap\Trap.h" />
     <ClInclude Include="Events\MapEvents\ITreasure\UnlockedTreasure.h" />
     <ClInclude Include="Events\EnemiesEvents\Rat\Rat.h" />
     <ClInclude Include="Events\EnemiesEvents\Warrion\Warrion.h" />
+    <ClInclude Include="Events\GameProcessEvents\ExitEvent\ExitEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background\Field.cpp" />
     <ClCompile Include="Background\Cell.cpp" />
     <ClCompile Include="Background\CellView.cpp" />
     <ClCompile Include="Background\FieldView.cpp" />
+    <ClCompile Include="Events\GameProcessEvents\DefeatEvent\DefeatEvent.cpp" />
+    <ClCompile Include="Events\EnemiesEvents\Boss\Boss.cpp" />
     <ClCompile Include="Control\CommandReader.cpp" />
     <ClCompile Include="Control\Controller.cpp" />
     <ClCompile Include="Events\EnemiesEvents\EnemiesEvents.cpp" />
@@ -157,11 +163,13 @@
     <ClCompile Include="Events\MapEvents\MapEvent.cpp" />
     <ClCompile Include="Control\Mediator.cpp" />
     <ClCompile Include="Events\MapEvents\ITreasure\LockedTreasure.cpp" />
+    <ClCompile Include="Events\GameProcessEvents\GameProcessEvents.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Events\MapEvents\Trap\Trap.cpp" />
     <ClCompile Include="Events\MapEvents\ITreasure\UnlockedTreasure.cpp" />
     <ClCompile Include="Events\EnemiesEvents\Warrion\Warrion.cpp" />
+    <ClCompile Include="Events\GameProcessEvents\ExitEvent\ExitEvent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

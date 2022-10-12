@@ -64,4 +64,3 @@ bool Player::is_dead()
     }
     return false;
 }
-

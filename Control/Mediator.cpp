@@ -34,6 +34,13 @@ void Mediator::game() {
             controller->move_player(current_command);
             controller->update_visualization();
         }
+        controller->get_defeat_event()->React();
+        if (controller->get_defeat_event()->is_activate()) {
+            break;
+        }
+        if (controller->get_exit_event()->is_activate()) {
+            break;
+        }
     }
 }
 

@@ -10,6 +10,14 @@ void CellView::draw_cell(Cell* cell) {
         else if (dynamic_cast<EnemiesEvents*>(cell->get_event())) {
             std::cout << enemiesCell;
         }
+        else if (dynamic_cast<ExitEvent*>(cell->get_event())) {
+            if (dynamic_cast<ExitEvent*>(cell->get_event())->is_show()) {
+                std::cout << exitCell;
+            }
+            else {
+                std::cout << passableCell;
+            }
+        }
         else {
             std::cout << passableCell;
         }
