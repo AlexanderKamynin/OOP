@@ -90,6 +90,9 @@
     <ClInclude Include="EventsFactory\MapEventFactory\MapEventFactory.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Events\MapEvents\CeilingCollapse\CeilingCollapse.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background\Field.cpp">
@@ -159,6 +162,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="EventsFactory\MapEventFactory\MapEventFactory.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\MapEvents\CeilingCollapse\CeilingCollapse.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -131,6 +131,7 @@
     <ClInclude Include="Background\Cell.h" />
     <ClInclude Include="Background\CellView.h" />
     <ClInclude Include="Background\FieldView.h" />
+    <ClInclude Include="Events\MapEvents\CeilingCollapse\CeilingCollapse.h" />
     <ClInclude Include="EventsFactory\EnemiesEventFactory\EnemiesEventFactory.h" />
     <ClInclude Include="Events\GameProcessEvents\DefeatEvent\DefeatEvent.h" />
     <ClInclude Include="Events\EnemiesEvents\Boss\Boss.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Background\Cell.cpp" />
     <ClCompile Include="Background\CellView.cpp" />
     <ClCompile Include="Background\FieldView.cpp" />
+    <ClCompile Include="Events\MapEvents\CeilingCollapse\CeilingCollapse.cpp" />
     <ClCompile Include="EventsFactory\EnemiesEventFactory\EnemiesEventFactory.cpp" />
     <ClCompile Include="EventsFactory\GameProcessEventFactory\GameProcessEventFactory.cpp" />
     <ClCompile Include="EventsFactory\MapEventFactory\MapEventFactory.cpp" />

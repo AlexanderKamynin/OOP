@@ -23,6 +23,7 @@ IEvent* Cell::get_event()
 
 void Cell::set_event(IEvent* event)
 {
+    delete this->event;
     this->event = event;
 }
 

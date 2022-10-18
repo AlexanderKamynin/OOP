@@ -50,7 +50,6 @@ void Controller::move_player(CommandReader::COMMANDS direction) {
     IEvent* event = field->get_field()[cur_position.second][cur_position.first]->get_event();
     play_event(event);
     if (event_is_one_time(event)){
-        delete event;
         field->get_field()[cur_position.second][cur_position.first]->set_event(nullptr);
     }
 }
@@ -73,11 +72,21 @@ void Controller::create_events() {
     this->field->get_field()[9][9]->set_event(exit_event);
     //
 
-    // 
     //проверочное задание ловушки
     this->field->get_field()[0][1]->set_event(map_event_factory->createTrap());
     this->field->get_field()[0][2]->set_event(map_event_factory->createTrap());
     //
+
+    //обрушение
+    std::vector<Cell*> cells_to_change = {
+            this->field->get_field()[0][9],
+            this->field->get_field()[0][5],
+            this->field->get_field()[6][6],
+            this->field->get_field()[4][6],
+            this->field->get_field()[9][2]
+    };
+    this->field->get_field()[1][2]->set_event(map_event_factory->createCeilingCollapse(cells_to_change));
+    // 
 
     //проверочное задание сокровищ
     this->field->get_field()[5][6]->set_event(map_event_factory->createUnlockedTreasure());
@@ -99,7 +108,7 @@ void Controller::play_event(IEvent* event) {
 
 bool Controller::event_is_one_time(IEvent* event)
 {
-    if (dynamic_cast<Trap*>(event) or dynamic_cast<UnlockedTreasure*>(event)) {
+    if (dynamic_cast<Trap*>(event) or dynamic_cast<UnlockedTreasure*>(event) or dynamic_cast<CeilingCollapse*>(event)) {
         return true;
     }
     if (dynamic_cast<LockedTreasure*>(event)) {
