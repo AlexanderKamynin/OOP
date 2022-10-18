@@ -1,6 +1,7 @@
 ﻿#include "Player.h"
 
 Player::Player() {
+    this->max_hp = 100;
     this->hp = 100;
     this->attack = 10;
     this->gold = 0;
@@ -13,8 +14,18 @@ int Player::get_player_attack()
     return this->attack;
 }
 
+void Player::increase_health(int health_to_add)
+{
+    this->hp += health_to_add;
+}
+
 void Player::decrease_health(int damage) {
     this->hp -= damage;
+}
+
+int Player::get_max_health()
+{
+    return this->max_hp;
 }
 
 int Player::get_health()
@@ -40,6 +51,11 @@ int Player::get_gold()
 void Player::add_gold(int gold)
 {
     this->gold += gold;
+}
+
+void Player::take_gold(int gold)
+{
+    this->gold -= gold;
 }
 
 int Player::get_passkey()

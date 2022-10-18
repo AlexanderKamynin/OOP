@@ -6,6 +6,7 @@
 #include "../EventsFactory/MapEventFactory/MapEventFactory.h"
 #include "../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
 #include "../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
+#include "../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
 #include "CommandReader.h"
 #include <string>
 
@@ -38,6 +39,7 @@ private:
     FieldView* field_view;
     MapEventFactory* map_event_factory;
     EnemiesEventFactory* enemies_event_factory;
+    GameObjectEventFactory* game_obj_event_factory;
     ExitEvent* exit_event;
     DefeatEvent* defeat_event;
 };

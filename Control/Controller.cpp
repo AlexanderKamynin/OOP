@@ -7,6 +7,7 @@ Controller::Controller() {
     this->player = new Player;
     this->map_event_factory = new MapEventFactory(this->player);
     this->enemies_event_factory = new EnemiesEventFactory(this->player);
+    this->game_obj_event_factory = new GameObjectEventFactory(this->player);
     GameProcessEventFactory* factory = new GameProcessEventFactory(this->player);
     this->defeat_event = dynamic_cast<DefeatEvent* >(factory->createDefeatEvent());
     this->exit_event = dynamic_cast<ExitEvent*>(factory->createExitEvent());
@@ -67,7 +68,8 @@ void Controller::print_player_info()
     std::cout << "Пройдено шагов: " << player->get_step() << '\n';
 }
 
-void Controller::create_events() {
+void Controller::create_events()
+{
     //задание выхода
     this->field->get_field()[9][9]->set_event(exit_event);
     //
@@ -88,9 +90,13 @@ void Controller::create_events() {
     this->field->get_field()[1][2]->set_event(map_event_factory->createCeilingCollapse(cells_to_change));
     // 
 
+    //создание алтаря
+    this->field->get_field()[7][2]->set_event(game_obj_event_factory->createAltar());
+    //
+
     //проверочное задание сокровищ
-    this->field->get_field()[5][6]->set_event(map_event_factory->createUnlockedTreasure());
-    this->field->get_field()[0][3]->set_event(map_event_factory->createLockedTreasure());
+    this->field->get_field()[5][6]->set_event(game_obj_event_factory->createUnlockedTreasure());
+    this->field->get_field()[0][3]->set_event(game_obj_event_factory->createLockedTreasure());
     //
 
     //проверочное создание врагов
@@ -108,7 +114,7 @@ void Controller::play_event(IEvent* event) {
 
 bool Controller::event_is_one_time(IEvent* event)
 {
-    if (dynamic_cast<Trap*>(event) or dynamic_cast<UnlockedTreasure*>(event) or dynamic_cast<CeilingCollapse*>(event)) {
+    if (dynamic_cast<MapEvent*>(event) or dynamic_cast<UnlockedTreasure*>(event)) {
         return true;
     }
     if (dynamic_cast<LockedTreasure*>(event)) {
@@ -140,6 +146,7 @@ Controller::~Controller() {
     delete field;
     delete map_event_factory;
     delete enemies_event_factory;
+    delete game_obj_event_factory;
     delete exit_event;
     delete defeat_event;
 }

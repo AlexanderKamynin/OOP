@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Events\GameObjectEvents\Altar\Altar.h" />
     <ClInclude Include="Background\Field.h" />
     <ClInclude Include="Background\Cell.h" />
     <ClInclude Include="Background\CellView.h" />
@@ -141,20 +142,23 @@
     <ClInclude Include="Events\IEvent.h" />
     <ClInclude Include="Control\Mediator.h" />
     <ClInclude Include="Events\MapEvents\MapEvent.h" />
-    <ClInclude Include="Events\MapEvents\ITreasure\ITreasure.h" />
-    <ClInclude Include="Events\MapEvents\ITreasure\LockedTreasure.h" />
+    <ClInclude Include="Events\GameObjectEvents\ITreasure\ITreasure.h" />
+    <ClInclude Include="Events\GameObjectEvents\ITreasure\LockedTreasure.h" />
     <ClInclude Include="Events\GameProcessEvents\GameProcessEvents.h" />
     <ClInclude Include="EventsFactory\IEventFactory.h" />
     <ClInclude Include="EventsFactory\GameProcessEventFactory\GameProcessEventFactory.h" />
     <ClInclude Include="EventsFactory\MapEventFactory\MapEventFactory.h" />
+    <ClInclude Include="Events\GameObjectEvents\GameObjectEvent.h" />
+    <ClInclude Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="Events\MapEvents\Trap\Trap.h" />
-    <ClInclude Include="Events\MapEvents\ITreasure\UnlockedTreasure.h" />
+    <ClInclude Include="Events\GameObjectEvents\ITreasure\UnlockedTreasure.h" />
     <ClInclude Include="Events\EnemiesEvents\Rat\Rat.h" />
     <ClInclude Include="Events\EnemiesEvents\Warrion\Warrion.h" />
     <ClInclude Include="Events\GameProcessEvents\ExitEvent\ExitEvent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Events\GameObjectEvents\Altar\Altar.cpp" />
     <ClCompile Include="Background\Field.cpp" />
     <ClCompile Include="Background\Cell.cpp" />
     <ClCompile Include="Background\CellView.cpp" />
@@ -171,12 +175,14 @@
     <ClCompile Include="Events\EnemiesEvents\Rat\Rat.cpp" />
     <ClCompile Include="Events\MapEvents\MapEvent.cpp" />
     <ClCompile Include="Control\Mediator.cpp" />
-    <ClCompile Include="Events\MapEvents\ITreasure\LockedTreasure.cpp" />
+    <ClCompile Include="Events\GameObjectEvents\ITreasure\LockedTreasure.cpp" />
     <ClCompile Include="Events\GameProcessEvents\GameProcessEvents.cpp" />
+    <ClCompile Include="Events\GameObjectEvents\GameObjectEvent.cpp" />
+    <ClCompile Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Events\MapEvents\Trap\Trap.cpp" />
-    <ClCompile Include="Events\MapEvents\ITreasure\UnlockedTreasure.cpp" />
+    <ClCompile Include="Events\GameObjectEvents\ITreasure\UnlockedTreasure.cpp" />
     <ClCompile Include="Events\EnemiesEvents\Warrion\Warrion.cpp" />
     <ClCompile Include="Events\GameProcessEvents\ExitEvent\ExitEvent.cpp" />
   </ItemGroup>

@@ -6,7 +6,11 @@ public:
 
     int get_player_attack();
 
+    void increase_health(int health_to_add);
+
     void decrease_health(int damage);
+
+    int get_max_health();
 
     int get_health();
 
@@ -18,6 +22,8 @@ public:
 
     void add_gold(int gold);
 
+    void take_gold(int gold);
+
     int get_passkey();
 
     void add_passkey(int passkey);
@@ -28,6 +34,7 @@ public:
 
     ~Player() = default;
 private:
+    int max_hp;
     int gold;
     int hp;
     int attack;

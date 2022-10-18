@@ -48,13 +48,13 @@
     <ClInclude Include="Events\MapEvents\MapEvent.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Events\MapEvents\ITreasure\ITreasure.h">
+    <ClInclude Include="Events\GameObjectEvents\ITreasure\ITreasure.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Events\MapEvents\ITreasure\UnlockedTreasure.h">
+    <ClInclude Include="Events\GameObjectEvents\ITreasure\UnlockedTreasure.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Events\MapEvents\ITreasure\LockedTreasure.h">
+    <ClInclude Include="Events\GameObjectEvents\ITreasure\LockedTreasure.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Events\EnemiesEvents\EnemiesEvents.h">
@@ -93,6 +93,15 @@
     <ClInclude Include="Events\MapEvents\CeilingCollapse\CeilingCollapse.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Events\GameObjectEvents\GameObjectEvent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Events\GameObjectEvents\Altar\Altar.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background\Field.cpp">
@@ -128,10 +137,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Events\MapEvents\ITreasure\UnlockedTreasure.cpp">
+    <ClCompile Include="Events\GameObjectEvents\ITreasure\UnlockedTreasure.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Events\MapEvents\ITreasure\LockedTreasure.cpp">
+    <ClCompile Include="Events\GameObjectEvents\ITreasure\LockedTreasure.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Events\EnemiesEvents\EnemiesEvents.cpp">
@@ -165,6 +174,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Events\MapEvents\CeilingCollapse\CeilingCollapse.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\GameObjectEvents\GameObjectEvent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Events\GameObjectEvents\Altar\Altar.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,6 +7,9 @@ void CellView::draw_cell(Cell* cell) {
         if (dynamic_cast<ITreasure*>(cell->get_event())) {
             std::cout << treasureCell;
         }
+        else if (dynamic_cast<Altar*>(cell->get_event())) {
+            std::cout << altarCell;
+        }
         else if (dynamic_cast<EnemiesEvents*>(cell->get_event())) {
             std::cout << enemiesCell;
         }
