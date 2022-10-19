@@ -1,7 +1,7 @@
 #pragma once
 #include "CommandReader.h"
 #include "Controller.h"
-
+#include <string>
 
 class Mediator {
 public:

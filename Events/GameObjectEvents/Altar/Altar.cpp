@@ -27,6 +27,7 @@ void Altar::React()
 			if (choice == "1") {
 				if (player->get_gold() >= full_heal_cost) {
 					player->increase_health(max_player_health - player_health);
+					player->take_gold(full_heal_cost);
 				}
 				else {
 					std::cout << "Не хватает монет..." << '\n';
@@ -36,6 +37,7 @@ void Altar::React()
 			else if (choice == "2") {
 				if (player->get_gold() >= half_heal_cost) {
 					player->increase_health((max_player_health - player_health) / 2);
+					player->take_gold(half_heal_cost);
 				}
 				else {
 					std::cout << "Не хватает монет..." << '\n';

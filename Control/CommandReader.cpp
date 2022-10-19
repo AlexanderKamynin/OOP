@@ -23,7 +23,7 @@ int CommandReader::read_size() {
 bool CommandReader::read_agree()
 {
     std::string agree = "";
-    while (1) {
+    while (agree != "yes" && agree != "no") {
         std::cin >> agree;
         if (agree == "yes") {
             return true;
@@ -31,6 +31,7 @@ bool CommandReader::read_agree()
         if (agree == "no") {
             return false;
         }
+        std::cout << "¬ведите [yes/no]" << '\n';
     }
 }
 
