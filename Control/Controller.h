@@ -24,9 +24,7 @@ public:
 
     void create_events();
 
-    void play_event(IEvent* event);
-
-    bool event_is_one_time(IEvent* event);
+    void play_event(Cell* cur_cell);
 
     DefeatEvent* get_defeat_event();
 

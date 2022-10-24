@@ -22,6 +22,11 @@ void ExitEvent::React()
 	}
 }
 
+bool ExitEvent::is_one_time()
+{
+	return false;
+}
+
 bool ExitEvent::is_activate()
 {
 	return this->activate;

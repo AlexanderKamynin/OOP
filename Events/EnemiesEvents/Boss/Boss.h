@@ -6,14 +6,9 @@
 class Boss : public EnemiesEvents
 {
 public:
-	Boss(Player* player) : EnemiesEvents(player) {};
+	Boss(Player* player, int health = 60, int damage = 15, int gold = 0, int passkey = 0) : EnemiesEvents(player, health, damage, gold, passkey) {};
 
 	void React() override;
 
-	void set_gold(int gold = 1) override;
-
-	void set_passkey(int passkey = 1) override;
-
-private:
-	void set_stats() override;
+	bool is_one_time() override;
 };

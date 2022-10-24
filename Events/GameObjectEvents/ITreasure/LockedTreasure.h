@@ -12,9 +12,11 @@ public:
 
 	void React() override;
 
-	bool is_unlock();
+	bool is_one_time() override;
 
 private:
+	bool is_unlock();
+
 	bool check_passkey();
 
 	bool unlock = false;

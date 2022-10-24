@@ -8,9 +8,9 @@ class EnemiesEventFactory : public IEventFactory {
 public:
 	EnemiesEventFactory(Player* player) : IEventFactory(player) {};
 
-	IEvent* createRat(int gold = 10, int passkey = 0);
+	IEvent* createRat(int health = 20, int damage = 3, int gold = 10, int passkey = 0);
 
-	IEvent* createWarrion(int gold = 30, int passkey = 0);
+	IEvent* createWarrion(int health = 40, int damage = 5, int gold = 30, int passkey = 0);
 
-	IEvent* createBoss(int gold = 100, int passkey = 1);
+	IEvent* createBoss(int health = 50, int damage = 10, int gold = 100, int passkey = 0);
 };

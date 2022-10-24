@@ -48,11 +48,7 @@ void Controller::move_player(CommandReader::COMMANDS direction) {
         player->increase_step();
     }
 
-    IEvent* event = field->get_field()[cur_position.second][cur_position.first]->get_event();
-    play_event(event);
-    if (event_is_one_time(event)){
-        field->get_field()[cur_position.second][cur_position.first]->set_event(nullptr);
-    }
+    play_event(field->get_field()[cur_position.second][cur_position.first]);
 }
 
 void Controller::update_visualization() {
@@ -101,34 +97,28 @@ void Controller::create_events()
 
     //проверочное создание врагов
     this->field->get_field()[7][7]->set_event(enemies_event_factory->createRat());
-    this->field->get_field()[6][6]->set_event(enemies_event_factory->createWarrion());
+    this->field->get_field()[6][6]->set_event(enemies_event_factory->createWarrion(40, 5, 30, 2));
     this->field->get_field()[8][8]->set_event(enemies_event_factory->createBoss());
     //
 }
 
-void Controller::play_event(IEvent* event) {
+void Controller::play_event(Cell* cur_cell) {
+    IEvent* event = cur_cell->get_event();
     if (event != nullptr) {
         event->React();
-    }
-}
-
-bool Controller::event_is_one_time(IEvent* event)
-{
-    if (dynamic_cast<MapEvent*>(event) or dynamic_cast<UnlockedTreasure*>(event)) {
-        return true;
-    }
-    if (dynamic_cast<LockedTreasure*>(event)) {
-        return dynamic_cast<LockedTreasure*>(event)->is_unlock();
-    }
-    if (dynamic_cast<EnemiesEvents*>(event)) {
+        //
         if (dynamic_cast<Boss*>(event)) {
-            if (dynamic_cast<Boss*>(event)->is_dead()) {
-                this->exit_event->boss_is_defeat();
+            {
+                if (dynamic_cast<Boss*>(event)->is_dead()) {
+                    this->exit_event->boss_is_defeat();
+                }
             }
         }
-        return dynamic_cast<EnemiesEvents*>(event)->is_dead();
+        //
+        if (event->is_one_time()) {
+            cur_cell->set_event(nullptr);
+        }
     }
-    return false;
 }
 
 DefeatEvent* Controller::get_defeat_event()

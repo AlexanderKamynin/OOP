@@ -53,3 +53,8 @@ void Altar::React()
 		}
 	}
 }
+
+bool Altar::is_one_time()
+{
+	return false;
+}

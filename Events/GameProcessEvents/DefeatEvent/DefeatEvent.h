@@ -9,6 +9,8 @@ public:
 
 	void React() override;
 
+	bool is_one_time() override;
+
 	bool is_activate() override;
 };
 

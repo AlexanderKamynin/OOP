@@ -10,6 +10,11 @@ void DefeatEvent::React()
 	}
 }
 
+bool DefeatEvent::is_one_time()
+{
+	return false;
+}
+
 bool DefeatEvent::is_activate()
 {
 	return this->activate;

@@ -9,5 +9,7 @@ public:
 
 	void React() override;
 
+	bool is_one_time() override;
+
 	~Trap() = default;
 };

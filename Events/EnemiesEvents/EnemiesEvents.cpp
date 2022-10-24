@@ -1,12 +1,12 @@
 #include "EnemiesEvents.h"
 
-EnemiesEvents::EnemiesEvents(Player* player)
+EnemiesEvents::EnemiesEvents(Player* player, int health, int damage, int gold, int passkey)
 {
 	this->player = player;
-	this->gold = 0;
-	this->damage = 0;
-	this->health = 1;
-	this->passkey = 0;
+    this->gold = gold;
+    this->damage = damage;
+    this->health = health;
+    this->passkey = passkey;
 }
 
 void EnemiesEvents::preview_battle() {

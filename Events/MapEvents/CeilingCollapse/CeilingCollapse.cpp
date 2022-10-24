@@ -10,3 +10,8 @@ void CeilingCollapse::React()
 		}
 	}
 }
+
+bool CeilingCollapse::is_one_time()
+{
+	return true;
+}

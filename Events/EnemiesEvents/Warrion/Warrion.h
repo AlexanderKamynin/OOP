@@ -6,15 +6,10 @@
 class Warrion : public EnemiesEvents
 {
 public:
-	Warrion(Player* player) : EnemiesEvents(player) {};
+	Warrion(Player* player, int health = 40, int damage = 5, int gold = 0, int passkey = 0) : EnemiesEvents(player, health, damage, gold, passkey) {};
 
 	void React() override;
 
-	void set_gold(int gold = 1) override;
-
-	void set_passkey(int passkey = 1) override;
-
-private:
-	void set_stats() override;
+	bool is_one_time() override;
 };
 

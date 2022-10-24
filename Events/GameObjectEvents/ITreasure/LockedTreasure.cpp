@@ -32,6 +32,14 @@ void LockedTreasure::React()
 
 }
 
+bool LockedTreasure::is_one_time()
+{
+    if (this->is_unlock()) {
+        return true;
+    }
+    return false;
+}
+
 bool LockedTreasure::is_unlock()
 {
     return this->unlock;

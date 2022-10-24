@@ -6,13 +6,11 @@
 class EnemiesEvents : public IEvent
 {
 public:
-	EnemiesEvents(Player* player);
-
-	virtual void set_gold(int gold = 1) = 0;
-
-	virtual void set_passkey(int passkey = 1) = 0;
+	EnemiesEvents(Player* player, int health, int damage, int gold = 0, int passkey = 0);
 
 	bool is_dead();
+
+	virtual ~EnemiesEvents() = 0 {};
 protected:
 	Player* player;
 	int damage;
@@ -23,6 +21,5 @@ protected:
 	void preview_battle();
 	void battle();
 	void before_battle(bool battle_result);
-	virtual void set_stats() = 0;
 };
 
