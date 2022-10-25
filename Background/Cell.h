@@ -3,7 +3,7 @@
 #include "../Logging/Subject.h"
 
 
-class Cell
+class Cell : public Subject
 {
 public:
     Cell(bool passability = true, IEvent* event = nullptr);

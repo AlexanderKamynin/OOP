@@ -12,9 +12,7 @@ Controller::Controller() {
     this->defeat_event = dynamic_cast<DefeatEvent* >(factory->createDefeatEvent());
     this->exit_event = dynamic_cast<ExitEvent*>(factory->createExitEvent());
     delete factory;
-
-    //log create
-    this->log_game = new LogGame(this->player);
+    this->log_game = nullptr;
 }
 
 void Controller::create_field(int height, int width) {
@@ -27,6 +25,9 @@ void Controller::create_field(int height, int width) {
     //
     create_events();
     this->field_view = new FieldView(this->field);
+
+    std::vector<ISubject*> subj = { this->player, this->field};
+    this->log_game = new LogGame(subj);
 }
 
 void Controller::move_player(CommandReader::COMMANDS direction) {
@@ -108,6 +109,7 @@ void Controller::play_event(Cell* cur_cell) {
     IEvent* event = cur_cell->get_event();
     if (event != nullptr) {
         event->React();
+
         //
         if (dynamic_cast<Boss*>(event)) {
             {

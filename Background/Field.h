@@ -1,10 +1,11 @@
 #pragma once
 #include "Cell.h"
 #include "../Player/Player.h"
+#include "../Logging/Subject.h"
 #include <iostream>
 #include <vector>
 
-class Field
+class Field : public Subject
 {
 public:
     explicit Field(int height = 10, int width = 10);

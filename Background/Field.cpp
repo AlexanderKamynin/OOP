@@ -126,6 +126,7 @@ void Field::set_player_position(int new_x, int new_y) {
     if (this->field[new_y][new_x]->get_passability() == true) {
         this->x_player_coordinate = new_x;
         this->y_player_coordinate = new_y;
+        this->notify(Message("log_game", "new player position in Field\n"));
     }
     else {
         std::cout << "Прохода нет" << '\n';

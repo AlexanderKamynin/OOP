@@ -2,16 +2,18 @@
 #include "IObserver.h"
 #include "ISubject.h"
 #include <iostream>
+#include <vector>
+
 
 class LogGame : public IObserver
 {
 public:
-	LogGame(ISubject* subject);
+	LogGame(std::vector<ISubject*> subjects);
 	
 	void update(const Message& msg) override;
 
 	~LogGame();
 private:
-	ISubject* subject;
+	std::vector<ISubject*> subjects;
 };
 
