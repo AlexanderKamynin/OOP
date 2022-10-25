@@ -7,6 +7,7 @@
 #include "../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
 #include "../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
 #include "../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
+#include "../Logging/LogGame.h"
 #include "CommandReader.h"
 #include <string>
 
@@ -40,4 +41,5 @@ private:
     GameObjectEventFactory* game_obj_event_factory;
     ExitEvent* exit_event;
     DefeatEvent* defeat_event;
+    LogGame* log_game;
 };

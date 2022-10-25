@@ -1,6 +1,8 @@
 #pragma once
+#include "../Logging/Subject.h"
 
-class Player {
+class Player : public Subject
+{
 public:
     Player();
 

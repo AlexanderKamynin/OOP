@@ -76,7 +76,7 @@ bool EnemiesEvents::is_dead() {
 
 void EnemiesEvents::before_battle(bool battle_result) {
     if (battle_result) {
-        std::cout << "Вы победили!";
+        std::cout << "Вы победили!" << '\n';
         if (this->gold > 0) {
             player->add_gold(this->gold);
             std::cout << " Вы получили " << this->gold << " золота.";

@@ -12,6 +12,9 @@ Controller::Controller() {
     this->defeat_event = dynamic_cast<DefeatEvent* >(factory->createDefeatEvent());
     this->exit_event = dynamic_cast<ExitEvent*>(factory->createExitEvent());
     delete factory;
+
+    //log create
+    this->log_game = new LogGame(this->player);
 }
 
 void Controller::create_field(int height, int width) {
@@ -30,7 +33,6 @@ void Controller::move_player(CommandReader::COMMANDS direction) {
     std::pair<int, int> cur_position = field->get_player_position();
     int first_x = cur_position.first;
     int first_y = cur_position.second;
-
     if (direction == CommandReader::COMMANDS::LEFT) {
         field->set_player_position(first_x - 1, first_y);
     }

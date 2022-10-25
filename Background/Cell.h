@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "../Events/IEvent.h"
+#include "../Logging/Subject.h"
 
 
 class Cell
