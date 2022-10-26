@@ -1,17 +1,21 @@
 #include "LogError.h"
 
-LogError::LogError(ISubject* subject)
+LogError::LogError(std::vector <ISubject*> subjects)
 {
-	this->subject = subject;
-	subject->attach(this);
+	this->subjects = subjects;
+	for (auto elem : subjects) {
+		elem->attach(this);
+	}
 }
 
 void LogError::update(const Message& msg)
 {
-
+	std::cout << msg;
 }
 
 LogError::~LogError()
 {
-	this->subject->detach(this);
+	for (auto elem : subjects) {
+		elem->detach(this);
+	}
 }

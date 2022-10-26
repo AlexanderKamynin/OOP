@@ -2,6 +2,7 @@
 
 void Boss::React()
 {
+	this->notify(Message("log_game", "react from boss\n"));
 	std::cout << "Перед вами крупное существо, похоже это босс..." << '\n';
 	preview_battle();
 	if (is_dead()) {

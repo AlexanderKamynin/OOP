@@ -1,6 +1,8 @@
 #include "Rat.h"
 
-void Rat::React() {
+void Rat::React() 
+{
+	this->notify(Message("log_game", "react from rat\n"));
 	std::cout << "Перед вами крыса..." << '\n';
 	preview_battle();
 }

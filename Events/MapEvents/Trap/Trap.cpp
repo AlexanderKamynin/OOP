@@ -3,6 +3,7 @@
 
 void Trap::React()
 {
+	this->notify(Message("log_game", "react from trap\n"));
 	std::cout << "Óïñ! Ëîâóøêà..." << '\n';
 	player->decrease_health(2);
 }

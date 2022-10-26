@@ -27,6 +27,11 @@ void Controller::create_field(int height, int width) {
     this->field_view = new FieldView(this->field);
 
     std::vector<ISubject*> subj = { this->player, this->field};
+    for (int x = 0; x < this->field->get_width(); x++) {
+        for (int y = 0; y < this->field->get_height(); y++) {
+            subj.push_back(this->field->get_field()[y][x]);
+        }
+    }
     this->log_game = new LogGame(subj);
 }
 
@@ -108,8 +113,9 @@ void Controller::create_events()
 void Controller::play_event(Cell* cur_cell) {
     IEvent* event = cur_cell->get_event();
     if (event != nullptr) {
+        event->attach(this->log_game);
         event->React();
-
+        event->detach(this->log_game);
         //
         if (dynamic_cast<Boss*>(event)) {
             {

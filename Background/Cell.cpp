@@ -13,6 +13,7 @@ bool Cell::get_passability()
 
 void Cell::set_passability(bool value)
 {
+    this->notify(Message("log_game", "set_passability from Cell\n"));
     this->passability = value;
 }
 
@@ -23,6 +24,7 @@ IEvent* Cell::get_event()
 
 void Cell::set_event(IEvent* event)
 {
+    this->notify(Message("log_game", "set_event from Cell\n"));
     delete this->event;
     this->event = event;
 }

@@ -7,6 +7,7 @@ void LockedTreasure::set_gold_in_treasure(int gold)
 
 void LockedTreasure::React()
 {
+    this->notify(Message("log_game", "react from LockedTreasure\n"));
 	std::cout << "Хотите открыть сундук? [yes/no]" << '\n';
     std::string agree = "";
     while (agree != "yes" and agree != "no") {

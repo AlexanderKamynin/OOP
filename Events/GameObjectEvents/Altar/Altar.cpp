@@ -2,6 +2,7 @@
 
 void Altar::React()
 {
+	this->notify(Message("log_game", "react from altar\n"));
 	std::cout << "Перед вами алтарь с целебной водой" << '\n';
 	int player_health = player->get_health();
 	int max_player_health = player->get_max_health();

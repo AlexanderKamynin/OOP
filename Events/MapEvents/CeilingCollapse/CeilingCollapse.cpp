@@ -3,6 +3,7 @@
 
 void CeilingCollapse::React()
 {
+	this->notify(Message("log_game", "react from CeilingCollapse\n"));
 	std::cout << "Вы наступили на нажимную плиту. Потолок обваливается..." << '\n';
 	for (int i = 0; i < this->cells_to_change.size(); i++) {
 		if (cells_to_change[i]->get_event() == nullptr) {

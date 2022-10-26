@@ -1,16 +1,17 @@
 #pragma once
 #include "IObserver.h"
 #include "ISubject.h"
+#include <vector>
 
 
 class LogError : public IObserver
 {
 public:
-	LogError(ISubject* subject);
+	LogError(std::vector<ISubject*> subjects);
 
 	void update(const Message& msg) override;
 
 	~LogError();
-private:
-	ISubject* subject;
+private:	
+	std::vector<ISubject*> subjects;
 };

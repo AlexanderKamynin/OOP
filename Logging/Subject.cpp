@@ -7,7 +7,7 @@ void Subject::attach(IObserver* observer)
 
 void Subject::detach(IObserver* observer)
 {
-	std::remove(observers.begin(), observers.end(), observer);
+	observers.erase(std::remove(observers.begin(), observers.end(), observer), observers.end());
 }
 
 void Subject::notify(const Message &msg)
