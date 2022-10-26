@@ -17,6 +17,14 @@ void LogGame::update(Message& msg)
 	}
 }
 
+void LogGame::add_subjects(std::vector<ISubject*> subjects)
+{
+	this->subjects = subjects;
+	for (auto elem : subjects) {
+		elem->attach(this);
+	}
+}
+
 void LogGame::activate()
 {
 	this->is_activate = true;

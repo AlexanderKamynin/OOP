@@ -25,7 +25,9 @@ public:
 
     void print_player_info();
 
-    void create_logs();
+    void create_logs(int log_level = 0);
+
+    void initializing_logs();
 
     void create_events();
 
@@ -39,6 +41,7 @@ public:
 
     ~Controller();
 private:
+    int log_level;
     Player* player;
     Field* field;
     FieldView* field_view;

@@ -13,6 +13,7 @@ public:
     ~Mediator();
 private:
     void game();
+    void choose_log_level();
 
     CommandReader* command_reader;
     Controller* controller;

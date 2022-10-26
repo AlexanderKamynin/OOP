@@ -17,6 +17,14 @@ void LogError::update(Message& msg)
 	}
 }
 
+void LogError::add_subjects(std::vector<ISubject*> subjects)
+{
+	this->subjects = subjects;
+	for (auto elem : subjects) {
+		elem->attach(this);
+	}
+}
+
 void LogError::activate()
 {
 	this->is_activate = true;

@@ -12,8 +12,6 @@ Controller::Controller() {
     this->defeat_event = dynamic_cast<DefeatEvent*>(factory->createDefeatEvent());
     this->exit_event = dynamic_cast<ExitEvent*>(factory->createExitEvent());
     delete factory;
-    this->cur_log = new LogGameStatus(std::vector<ISubject*>());
-    cur_log->activate();
 }
 
 void Controller::create_field(int height, int width) {
@@ -25,6 +23,7 @@ void Controller::create_field(int height, int width) {
     this->field->get_field()[2][3]->set_passability(false);
     //
     create_events();
+    initializing_logs();
     this->field_view = new FieldView(this->field);
 }
 
@@ -65,15 +64,61 @@ void Controller::print_player_info()
     std::cout << "Пройдено шагов: " << player->get_step() << '\n';
 }
 
-void Controller::create_logs()
+void Controller::create_logs(int log_level)
 {
-    //std::vector<ISubject*> subj = { this->player, this->field };
-    //for (int x = 0; x < this->field->get_width(); x++) {
-    //    for (int y = 0; y < this->field->get_height(); y++) {
-    //        subj.push_back(this->field->get_field()[y][x]);
-    //    }
-    //}
-    //this->log_game = new LogGame(subj);
+    this->log_level = log_level;
+    switch (log_level)
+    {
+    case 0: {
+        this->cur_log = new LogGameStatus(std::vector<ISubject*>());
+        break;
+    }
+    case 1: {
+        this->cur_log = new LogGame(std::vector<ISubject*>());
+        this->cur_log->activate();
+        break;
+    }
+    case 2: {
+        this->cur_log = new LogGameStatus(std::vector<ISubject*>());
+        this->cur_log->activate();
+        break;
+    }
+    case 3: {
+        this->cur_log = new LogError(std::vector<ISubject*>());
+        this->cur_log->activate();
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void Controller::initializing_logs() {
+    switch (this->log_level)
+    {
+    case 1: {
+        std::vector<ISubject*> subj = { this->player, this->field };
+        for (int x = 0; x < this->field->get_width(); x++) {
+            for (int y = 0; y < this->field->get_height(); y++) {
+                subj.push_back(this->field->get_field()[y][x]);
+            }
+        }
+        this->cur_log->add_subjects(subj);
+        break;
+    }
+    case 3: {
+        std::vector<ISubject*> subj = { this->field };
+        for (int x = 0; x < this->field->get_width(); x++) {
+            for (int y = 0; y < this->field->get_height(); y++) {
+                subj.push_back(this->field->get_field()[y][x]);
+            }
+        }
+        this->cur_log->add_subjects(subj);
+        break;
+    }
+    default:
+        break;
+    }
 }
 
 void Controller::create_events()

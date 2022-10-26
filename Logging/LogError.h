@@ -10,6 +10,8 @@ public:
 	LogError(std::vector<ISubject*> subjects);
 
 	void update(Message& msg) override;
+	
+	void add_subjects(std::vector<ISubject*> subjects) override;
 
 	void activate();
 

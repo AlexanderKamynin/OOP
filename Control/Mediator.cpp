@@ -7,6 +7,7 @@ Mediator::Mediator() {
 }
 
 void Mediator::start_game() {
+    choose_log_level();
     Message msg("log_game_status", "Game is start\n");
     this->controller->get_cur_log()->update(msg);
     std::cout << "Введите размеры игрового поля [10-30]" << '\n';
@@ -68,6 +69,28 @@ void Mediator::game() {
             break;
         }
     }
+}
+
+void Mediator::choose_log_level()
+{
+    int log_level = 0;
+    std::cout << "Выберите уровень логирования:\n";
+    std::cout << " 0 - без логирования\n" << "1 - логирование поля, игрока, событий\n" 
+    << "2 - логирование состояния игры\n" << "3 - логирование критических состояний и ошибок\n";
+    log_level = command_reader->read_size();
+    while (log_level < 0 || log_level > 3) {
+        std::cout << "Уровень логирования введен неверно" << '\n';
+        std::cout << "Хотите использовать значение по умолчанию (0)? [yes/no]" << '\n';
+        if (command_reader->read_agree()) {
+            log_level = 0;
+            break;
+        }
+        else {
+            std::cout << "Выберите уровень логирования:\n";
+            log_level = command_reader->read_size();
+        }
+    }
+    controller->create_logs(log_level);
 }
 
 Mediator::~Mediator() {
