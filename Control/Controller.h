@@ -10,6 +10,9 @@
 #include "../Logging/LogGame.h"
 #include "../Logging/LogError.h"
 #include "../Logging/LogGameStatus.h"
+#include "../Logging/FilePrinter.h"
+#include "../Logging/TerminalPrinter.h"
+#include "../Logging/TermFilePrinter.h"
 #include "CommandReader.h"
 #include <string>
 
@@ -26,6 +29,8 @@ public:
     void print_player_info();
 
     void create_logs(int log_level = 0);
+
+    void create_log_printer(std::string printer);
 
     void initializing_logs();
 
@@ -50,5 +55,6 @@ private:
     GameObjectEventFactory* game_obj_event_factory;
     ExitEvent* exit_event;
     DefeatEvent* defeat_event;
+    ILogPrinter* log_printer;
     IObserver* cur_log;
 };

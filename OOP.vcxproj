@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EnumClass.h" />
     <ClInclude Include="Events\GameObjectEvents\Altar\Altar.h" />
     <ClInclude Include="Background\Field.h" />
     <ClInclude Include="Background\Cell.h" />
@@ -151,12 +150,14 @@
     <ClInclude Include="EventsFactory\MapEventFactory\MapEventFactory.h" />
     <ClInclude Include="Events\GameObjectEvents\GameObjectEvent.h" />
     <ClInclude Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.h" />
+    <ClInclude Include="Logging\FilePrinter.h" />
     <ClInclude Include="Logging\LogError.h" />
     <ClInclude Include="Logging\LogGameStatus.h" />
     <ClInclude Include="Logging\LogGame.h" />
     <ClInclude Include="Logging\ISubject.h" />
     <ClInclude Include="Logging\IObserver.h" />
     <ClInclude Include="Logging\Message.h" />
+    <ClInclude Include="Logging\ILogPrinter.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="Events\MapEvents\Trap\Trap.h" />
     <ClInclude Include="Events\GameObjectEvents\ITreasure\UnlockedTreasure.h" />
@@ -164,6 +165,8 @@
     <ClInclude Include="Events\EnemiesEvents\Warrion\Warrion.h" />
     <ClInclude Include="Events\GameProcessEvents\ExitEvent\ExitEvent.h" />
     <ClInclude Include="Logging\Subject.h" />
+    <ClInclude Include="Logging\TerminalPrinter.h" />
+    <ClInclude Include="Logging\TermFilePrinter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Events\GameObjectEvents\Altar\Altar.cpp" />
@@ -187,9 +190,11 @@
     <ClCompile Include="Events\GameProcessEvents\GameProcessEvents.cpp" />
     <ClCompile Include="Events\GameObjectEvents\GameObjectEvent.cpp" />
     <ClCompile Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.cpp" />
+    <ClCompile Include="Logging\FilePrinter.cpp" />
     <ClCompile Include="Logging\LogError.cpp" />
     <ClCompile Include="Logging\LogGameStatus.cpp" />
     <ClCompile Include="Logging\LogGame.cpp" />
+    <ClCompile Include="Logging\TermFilePrinter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Logging\Message.cpp" />
     <ClCompile Include="Player\Player.cpp" />
@@ -198,6 +203,10 @@
     <ClCompile Include="Events\EnemiesEvents\Warrion\Warrion.cpp" />
     <ClCompile Include="Events\GameProcessEvents\ExitEvent\ExitEvent.cpp" />
     <ClCompile Include="Logging\Subject.cpp" />
+    <ClCompile Include="Logging\TerminalPrinter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="log.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

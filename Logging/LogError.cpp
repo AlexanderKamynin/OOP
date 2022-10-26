@@ -11,9 +11,9 @@ LogError::LogError(std::vector <ISubject*> subjects)
 
 void LogError::update(Message& msg)
 {
-	if (this->is_activate && msg.get_prefix() == "log_error:")
+	if (msg.get_prefix() == "log_error:")
 	{
-		std::cout << msg;
+		this->log_printer->print_log(msg);
 	}
 }
 
@@ -28,6 +28,10 @@ void LogError::add_subjects(std::vector<ISubject*> subjects)
 void LogError::activate()
 {
 	this->is_activate = true;
+}
+
+void LogError::add_log_printer(ILogPrinter* log_printer) {
+	this->log_printer = log_printer;
 }
 
 LogError::~LogError()

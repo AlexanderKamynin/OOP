@@ -13,7 +13,7 @@ void LogGameStatus::update(Message& msg)
 {
 	if (this->is_activate && msg.get_prefix() == "log_game_status:")
 	{
-		std::cout << msg;
+		this->log_printer->print_log(msg);
 	}
 }
 
@@ -28,6 +28,10 @@ void LogGameStatus::add_subjects(std::vector<ISubject*> subjects)
 void LogGameStatus::activate()
 {
 	this->is_activate = true;
+}
+
+void LogGameStatus::add_log_printer(ILogPrinter* log_printer) {
+	this->log_printer = log_printer;
 }
 
 LogGameStatus::~LogGameStatus()

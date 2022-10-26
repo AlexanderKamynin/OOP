@@ -75,8 +75,11 @@ void Mediator::choose_log_level()
 {
     int log_level = 0;
     std::cout << "Выберите уровень логирования:\n";
-    std::cout << " 0 - без логирования\n" << "1 - логирование поля, игрока, событий\n" 
-    << "2 - логирование состояния игры\n" << "3 - логирование критических состояний и ошибок\n";
+    std::cout 
+        << "0 - без логирования\n" 
+        << "1 - логирование поля, игрока, событий\n" 
+        << "2 - логирование состояния игры\n"
+        << "3 - логирование критических состояний и ошибок\n";
     log_level = command_reader->read_size();
     while (log_level < 0 || log_level > 3) {
         std::cout << "Уровень логирования введен неверно" << '\n';
@@ -90,7 +93,29 @@ void Mediator::choose_log_level()
             log_level = command_reader->read_size();
         }
     }
+    if (log_level != 0) {
+        choose_log_printer();
+    }
     controller->create_logs(log_level);
+}
+
+void Mediator::choose_log_printer() {
+    std::string printer = "";
+    std::cout << "Выберите формат вывода отслеживаемых сведений\n";
+    std::cout 
+        << "[terminal] - вывод в терминал\n"
+        << "[file] - вывод в файл\n"
+        << "[termfile] - вывод в терминал и файл\n";
+    while (true) {
+        std::cin >> printer;
+        if (printer == "terminal" || printer == "file" || printer == "termfile") {
+            break;
+        }
+        else {
+            std::cout << "Введите [terminal][file][termfile]\n";
+        }
+    }
+    controller->create_log_printer(printer);
 }
 
 Mediator::~Mediator() {

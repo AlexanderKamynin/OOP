@@ -18,7 +18,7 @@ std::string Message::get_prefix()
 
 std::ostream& operator<<(std::ostream& out, const Message& obj)
 {
-	out << obj.prefix << " ";
+	out << obj.prefix;
 	out << obj.msg;
 	return out;
 }

@@ -75,7 +75,6 @@ void Controller::create_logs(int log_level)
     }
     case 1: {
         this->cur_log = new LogGame(std::vector<ISubject*>());
-        this->cur_log->activate();
         break;
     }
     case 2: {
@@ -85,12 +84,12 @@ void Controller::create_logs(int log_level)
     }
     case 3: {
         this->cur_log = new LogError(std::vector<ISubject*>());
-        this->cur_log->activate();
         break;
     }
     default:
         break;
     }
+    this->cur_log->add_log_printer(log_printer);
 }
 
 void Controller::initializing_logs() {
@@ -118,6 +117,18 @@ void Controller::initializing_logs() {
     }
     default:
         break;
+    }
+}
+
+void Controller::create_log_printer(std::string printer) {
+    if (printer == "terminal") {
+        this->log_printer = new TerminalPrinter();
+    }
+    else if (printer == "file") {
+        this->log_printer = new FilePrinter();
+    }
+    else if (printer == "termfile") {
+        this->log_printer = new TermFilePrinter();
     }
 }
 
