@@ -2,7 +2,8 @@
 
 void ExitEvent::React()
 {
-	this->notify(Message("log_game", "react from ExitEvent\n"));
+	Message msg("log_game", "react from ExitEvent\n");
+	this->notify(msg);
 	if (show_exit == false) {
 		this->show_exit = true;
 		if (boss_defeat) {

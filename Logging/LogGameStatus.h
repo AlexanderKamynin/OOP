@@ -1,17 +1,20 @@
 #pragma once
 #include "IObserver.h"
 #include "ISubject.h"
-
+#include <vector>
 
 class LogGameStatus : public IObserver
 {
 public:
-	LogGameStatus(ISubject* subject);
+	LogGameStatus(std::vector <ISubject*> subjects);
 
-	void update(const Message& msg) override;
+	void update(Message& msg) override;
+
+	void activate();
 
 	~LogGameStatus();
 private:
-	ISubject* subject;
+	std::vector <ISubject*> subjects;
+	bool is_activate;
 };
 

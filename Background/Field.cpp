@@ -126,9 +126,12 @@ void Field::set_player_position(int new_x, int new_y) {
     if (this->field[new_y][new_x]->get_passability() == true) {
         this->x_player_coordinate = new_x;
         this->y_player_coordinate = new_y;
-        this->notify(Message("log_game", "new player position in Field\n"));
+        Message msg("log_game", "new player position in Field\n");
+        this->notify(msg);
     }
     else {
+        Message msg("log_error", "player try to step on impassable cell\n");
+        this->notify(msg);
         std::cout << "Прохода нет" << '\n';
     }
 }

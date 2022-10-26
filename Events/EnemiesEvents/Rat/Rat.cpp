@@ -2,7 +2,8 @@
 
 void Rat::React() 
 {
-	this->notify(Message("log_game", "react from rat\n"));
+	Message msg("log_game", "react from rat\n");
+	this->notify(msg);
 	std::cout << "Перед вами крыса..." << '\n';
 	preview_battle();
 }

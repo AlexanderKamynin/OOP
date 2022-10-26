@@ -1,17 +1,30 @@
 #include "LogGameStatus.h"
 
-LogGameStatus::LogGameStatus(ISubject* subject)
+LogGameStatus::LogGameStatus(std::vector <ISubject*> subjects)
 {
-	this->subject = subject;
-	subject->attach(this);
+	this->subjects = subjects;
+	for (auto elem : subjects) {
+		elem->attach(this);
+	}
+	this->is_activate = false;
 }
 
-void LogGameStatus::update(const Message& msg)
+void LogGameStatus::update(Message& msg)
 {
+	if (this->is_activate && msg.get_prefix() == "log_game_status:")
+	{
+		std::cout << msg;
+	}
+}
 
+void LogGameStatus::activate()
+{
+	this->is_activate = true;
 }
 
 LogGameStatus::~LogGameStatus()
 {
-	this->subject->detach(this);
+	for (auto elem : subjects) {
+		elem->detach(this);
+	}
 }

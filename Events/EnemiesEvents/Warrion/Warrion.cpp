@@ -2,7 +2,8 @@
 
 void Warrion::React()
 {
-	this->notify(Message("log_game", "react from warrion\n"));
+	Message msg("log_game", "react from warrion\n");
+	this->notify(msg);
 	std::cout << "Вы натолкнулись на воина..." << '\n';
 	preview_battle();
 }

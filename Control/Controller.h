@@ -8,6 +8,8 @@
 #include "../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
 #include "../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
 #include "../Logging/LogGame.h"
+#include "../Logging/LogError.h"
+#include "../Logging/LogGameStatus.h"
 #include "CommandReader.h"
 #include <string>
 
@@ -23,6 +25,8 @@ public:
 
     void print_player_info();
 
+    void create_logs();
+
     void create_events();
 
     void play_event(Cell* cur_cell);
@@ -30,6 +34,8 @@ public:
     DefeatEvent* get_defeat_event();
 
     ExitEvent* get_exit_event();
+
+    IObserver* get_cur_log();
 
     ~Controller();
 private:
@@ -41,5 +47,5 @@ private:
     GameObjectEventFactory* game_obj_event_factory;
     ExitEvent* exit_event;
     DefeatEvent* defeat_event;
-    LogGame* log_game;
+    IObserver* cur_log;
 };

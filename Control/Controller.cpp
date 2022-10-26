@@ -9,10 +9,11 @@ Controller::Controller() {
     this->enemies_event_factory = new EnemiesEventFactory(this->player);
     this->game_obj_event_factory = new GameObjectEventFactory(this->player);
     GameProcessEventFactory* factory = new GameProcessEventFactory(this->player);
-    this->defeat_event = dynamic_cast<DefeatEvent* >(factory->createDefeatEvent());
+    this->defeat_event = dynamic_cast<DefeatEvent*>(factory->createDefeatEvent());
     this->exit_event = dynamic_cast<ExitEvent*>(factory->createExitEvent());
     delete factory;
-    this->log_game = nullptr;
+    this->cur_log = new LogGameStatus(std::vector<ISubject*>());
+    cur_log->activate();
 }
 
 void Controller::create_field(int height, int width) {
@@ -25,14 +26,6 @@ void Controller::create_field(int height, int width) {
     //
     create_events();
     this->field_view = new FieldView(this->field);
-
-    std::vector<ISubject*> subj = { this->player, this->field};
-    for (int x = 0; x < this->field->get_width(); x++) {
-        for (int y = 0; y < this->field->get_height(); y++) {
-            subj.push_back(this->field->get_field()[y][x]);
-        }
-    }
-    this->log_game = new LogGame(subj);
 }
 
 void Controller::move_player(CommandReader::COMMANDS direction) {
@@ -70,6 +63,17 @@ void Controller::print_player_info()
     std::cout << "Золото игрока: " << player->get_gold() << '\n';
     std::cout << "Отмычки игрока: " << player->get_passkey() << '\n';
     std::cout << "Пройдено шагов: " << player->get_step() << '\n';
+}
+
+void Controller::create_logs()
+{
+    //std::vector<ISubject*> subj = { this->player, this->field };
+    //for (int x = 0; x < this->field->get_width(); x++) {
+    //    for (int y = 0; y < this->field->get_height(); y++) {
+    //        subj.push_back(this->field->get_field()[y][x]);
+    //    }
+    //}
+    //this->log_game = new LogGame(subj);
 }
 
 void Controller::create_events()
@@ -113,9 +117,9 @@ void Controller::create_events()
 void Controller::play_event(Cell* cur_cell) {
     IEvent* event = cur_cell->get_event();
     if (event != nullptr) {
-        event->attach(this->log_game);
+        event->attach(this->cur_log);
         event->React();
-        event->detach(this->log_game);
+        event->detach(this->cur_log);
         //
         if (dynamic_cast<Boss*>(event)) {
             {
@@ -138,6 +142,11 @@ DefeatEvent* Controller::get_defeat_event()
 
 ExitEvent* Controller::get_exit_event() {
     return this->exit_event;
+}
+
+IObserver* Controller::get_cur_log()
+{
+    return this->cur_log;
 }
 
 Controller::~Controller() {

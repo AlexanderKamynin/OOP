@@ -2,7 +2,8 @@
 
 void Altar::React()
 {
-	this->notify(Message("log_game", "react from altar\n"));
+	Message msg("log_game", "react from altar\n");
+	this->notify(msg);
 	std::cout << "Перед вами алтарь с целебной водой" << '\n';
 	int player_health = player->get_health();
 	int max_player_health = player->get_max_health();
@@ -49,6 +50,8 @@ void Altar::React()
 				break;
 			}
 			else {
+				Message msg1("log_error", "incorrect input in React::Altar()\n");
+				this->notify(msg1);
 				std::cout << "Введите число 1, 2 или 3..." << '\n';
 			}
 		}

@@ -16,12 +16,14 @@ int Player::get_player_attack()
 
 void Player::increase_health(int health_to_add)
 {
-    this->notify(Message("log_game", "increase_health from player\n"));
+    Message msg("log_game", "increase_health from player\n");
+    this->notify(msg);
     this->hp += health_to_add;
 }
 
 void Player::decrease_health(int damage) {
-    this->notify(Message("log_game", "decrease_health from player\n"));
+    Message msg("log_game", "decrease_health from player\n");
+    this->notify(msg);
     this->hp -= damage;
 }
 
@@ -42,7 +44,8 @@ int Player::get_step()
 
 void Player::increase_step()
 {
-    this->notify(Message("log_game", "increase_step from player\n"));
+    Message msg("log_game", "increase_step from player\n");
+    this->notify(msg);
     this->step++;
 }
 
@@ -53,13 +56,15 @@ int Player::get_gold()
 
 void Player::add_gold(int gold)
 {
-    this->notify(Message("log_game", "add_gold from player\n"));
+    Message msg("log_game", "add_gold from player\n");
+    this->notify(msg);
     this->gold += gold;
 }
 
 void Player::take_gold(int gold)
 {
-    this->notify(Message("log_game", "take_gold from player\n"));
+    Message msg("log_game", "take_gold from player\n");
+    this->notify(msg);
     this->gold -= gold;
 }
 
@@ -70,13 +75,15 @@ int Player::get_passkey()
 
 void Player::add_passkey(int passkey)
 {
-    this->notify(Message("log_game", "add_passkey from player\n"));
+    Message msg("log_game", "add_passkey from player\n");
+    this->notify(msg);
     this->passkey += passkey;
 }
 
 void Player::take_passkey()
 {
-    this->notify(Message("log_game", "take_gold from player\n"));
+    Message msg("log_game", "take_gold from player\n");
+    this->notify(msg);
     this->passkey -= 1;
 }
 

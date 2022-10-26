@@ -9,9 +9,12 @@ class LogError : public IObserver
 public:
 	LogError(std::vector<ISubject*> subjects);
 
-	void update(const Message& msg) override;
+	void update(Message& msg) override;
+
+	void activate();
 
 	~LogError();
 private:	
 	std::vector<ISubject*> subjects;
+	bool is_activate;
 };
