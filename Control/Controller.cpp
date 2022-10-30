@@ -23,7 +23,7 @@ void Controller::create_field(int height, int width) {
     this->field->get_field()[2][3]->set_passability(false);
     //
     create_events();
-    initializing_logs();
+    initializing_logger();
     this->field_view = new FieldView(this->field);
 }
 
@@ -64,60 +64,21 @@ void Controller::print_player_info()
     std::cout << "Пройдено шагов: " << player->get_step() << '\n';
 }
 
-void Controller::create_logs(int log_level)
+void Controller::create_logger(std::vector<EnumClass::LogLevels> levels_to_log)
 {
-    this->log_level = log_level;
-    switch (log_level)
-    {
-    case 0: {
-        this->cur_log = new LogGameStatus(std::vector<ISubject*>());
-        break;
-    }
-    case 1: {
-        this->cur_log = new LogGame(std::vector<ISubject*>());
-        break;
-    }
-    case 2: {
-        this->cur_log = new LogGameStatus(std::vector<ISubject*>());
-        this->cur_log->activate();
-        break;
-    }
-    case 3: {
-        this->cur_log = new LogError(std::vector<ISubject*>());
-        break;
-    }
-    default:
-        break;
-    }
-    this->cur_log->add_log_printer(log_printer);
+    this->logger = new Observer(std::vector<ISubject*>());
+    this->logger->add_levels_to_log(levels_to_log);
+    this->logger->add_log_printer(log_printer);
 }
 
-void Controller::initializing_logs() {
-    switch (this->log_level)
-    {
-    case 1: {
-        std::vector<ISubject*> subj = { this->player, this->field };
-        for (int x = 0; x < this->field->get_width(); x++) {
-            for (int y = 0; y < this->field->get_height(); y++) {
-                subj.push_back(this->field->get_field()[y][x]);
-            }
+void Controller::initializing_logger() {
+    std::vector<ISubject*> subj = { this->player, this->field };
+    for (int x = 0; x < this->field->get_width(); x++) {
+        for (int y = 0; y < this->field->get_height(); y++) {
+            subj.push_back(this->field->get_field()[y][x]);
         }
-        this->cur_log->add_subjects(subj);
-        break;
     }
-    case 3: {
-        std::vector<ISubject*> subj = { this->field };
-        for (int x = 0; x < this->field->get_width(); x++) {
-            for (int y = 0; y < this->field->get_height(); y++) {
-                subj.push_back(this->field->get_field()[y][x]);
-            }
-        }
-        this->cur_log->add_subjects(subj);
-        break;
-    }
-    default:
-        break;
-    }
+    this->logger->add_subjects(subj);
 }
 
 void Controller::create_log_printer(std::string printer) {
@@ -173,9 +134,9 @@ void Controller::create_events()
 void Controller::play_event(Cell* cur_cell) {
     IEvent* event = cur_cell->get_event();
     if (event != nullptr) {
-        event->attach(this->cur_log);
+        event->attach(this->logger);
         event->React();
-        event->detach(this->cur_log);
+        event->detach(this->logger);
         //
         if (dynamic_cast<Boss*>(event)) {
             {
@@ -200,14 +161,14 @@ ExitEvent* Controller::get_exit_event() {
     return this->exit_event;
 }
 
-IObserver* Controller::get_cur_log()
+Observer* Controller::get_logger()
 {
-    return this->cur_log;
+    return this->logger;
 }
 
 Controller::~Controller() {
     delete field_view;
-    delete cur_log;
+    delete logger;
     delete log_printer;
     delete player;
     delete field;

@@ -36,6 +36,32 @@ bool CommandReader::read_agree()
     }
 }
 
+std::vector<int> CommandReader::read_numbers()
+{
+    std::vector<int> numbers;
+    std::string line;
+    std::getline(std::cin, line);
+    std::string str;
+    for (auto x : line)
+    {
+        if (x == ' ')
+        {
+            if (string_is_digit(str)) {
+                numbers.push_back(std::stoi(str));
+            }
+            str = "";
+        }
+        else
+        {
+            str += x;
+        }
+    }
+    if (string_is_digit(str)) {
+        numbers.push_back(std::stoi(str));
+    }
+    return numbers;
+}
+
 bool CommandReader::string_is_digit(std::string str) {
     for (char c : str)
     {

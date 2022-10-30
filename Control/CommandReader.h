@@ -1,6 +1,7 @@
 #pragma once
 #include "../EnumClass.h"
 #include <iostream>
+#include <vector>
 #include <string>
 
 
@@ -13,7 +14,9 @@ public:
 
     int read_size();
 
-    bool read_agree(); 
+    std::vector<int> read_numbers(); 
+
+    bool read_agree();
 
     ~CommandReader() = default;
 private:

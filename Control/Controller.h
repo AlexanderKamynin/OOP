@@ -7,9 +7,7 @@
 #include "../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
 #include "../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
 #include "../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
-#include "../Logging/LogGame.h"
-#include "../Logging/LogError.h"
-#include "../Logging/LogGameStatus.h"
+#include "../Logging/Observer.h"
 #include "../Logging/FilePrinter.h"
 #include "../Logging/TerminalPrinter.h"
 #include "../Logging/TermFilePrinter.h"
@@ -28,11 +26,11 @@ public:
 
     void print_player_info();
 
-    void create_logs(int log_level = 0);
+    void create_logger(std::vector<EnumClass::LogLevels> levels_to_log);
 
     void create_log_printer(std::string printer);
 
-    void initializing_logs();
+    void initializing_logger();
 
     void create_events();
 
@@ -42,11 +40,10 @@ public:
 
     ExitEvent* get_exit_event();
 
-    IObserver* get_cur_log();
+    Observer* get_logger();
 
     ~Controller();
 private:
-    int log_level;
     Player* player;
     Field* field;
     FieldView* field_view;
@@ -56,5 +53,5 @@ private:
     ExitEvent* exit_event;
     DefeatEvent* defeat_event;
     ILogPrinter* log_printer;
-    IObserver* cur_log;
+    Observer* logger;
 };
