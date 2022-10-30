@@ -14,7 +14,6 @@
 #include "../Logging/TerminalPrinter.h"
 #include "../Logging/TermFilePrinter.h"
 #include "../EnumClass.h"
-#include "CommandReader.h"
 #include <string>
 
 class Controller {
@@ -23,7 +22,7 @@ public:
 
     void create_field(int height, int width);
 
-    void move_player(CommandReader::COMMANDS direction);
+    void move_player(EnumClass::COMMANDS direction);
 
     void update_visualization();
 

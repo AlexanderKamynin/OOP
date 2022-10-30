@@ -27,20 +27,20 @@ void Controller::create_field(int height, int width) {
     this->field_view = new FieldView(this->field);
 }
 
-void Controller::move_player(CommandReader::COMMANDS direction) {
+void Controller::move_player(EnumClass::COMMANDS direction) {
     std::pair<int, int> cur_position = field->get_player_position();
     int first_x = cur_position.first;
     int first_y = cur_position.second;
-    if (direction == CommandReader::COMMANDS::LEFT) {
+    if (direction == EnumClass::COMMANDS::LEFT) {
         field->set_player_position(first_x - 1, first_y);
     }
-    if (direction == CommandReader::COMMANDS::RIGHT) {
+    if (direction == EnumClass::COMMANDS::RIGHT) {
         field->set_player_position(first_x + 1, first_y);
     }
-    if (direction == CommandReader::COMMANDS::DOWN) {
+    if (direction == EnumClass::COMMANDS::DOWN) {
         field->set_player_position(first_x, first_y + 1);
     }
-    if (direction == CommandReader::COMMANDS::UP) {
+    if (direction == EnumClass::COMMANDS::UP) {
         field->set_player_position(first_x, first_y - 1);
     }
     cur_position = field->get_player_position(); //переполучаем координаты игрока с учетом зацикливания карты
@@ -207,6 +207,8 @@ IObserver* Controller::get_cur_log()
 
 Controller::~Controller() {
     delete field_view;
+    delete cur_log;
+    delete log_printer;
     delete player;
     delete field;
     delete map_event_factory;
@@ -214,6 +216,4 @@ Controller::~Controller() {
     delete game_obj_event_factory;
     delete exit_event;
     delete defeat_event;
-    delete cur_log;
-    delete log_printer;
 }

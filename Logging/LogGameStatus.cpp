@@ -11,7 +11,7 @@ LogGameStatus::LogGameStatus(std::vector <ISubject*> subjects)
 
 void LogGameStatus::update(Message& msg)
 {
-	if (this->is_activate && msg.get_log_level() == EnumClass::LOG_GAME_STATUS)
+	if (this->is_activate && msg.get_log_level() == EnumClass::LogLevels::LOG_GAME_STATUS)
 	{
 		this->log_printer->print_log(msg);
 	}

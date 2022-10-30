@@ -1,14 +1,15 @@
 #include "CommandReader.h"
 
 
-CommandReader::COMMANDS CommandReader::read_command() {
+EnumClass::COMMANDS CommandReader::read_command() {
+    EnumClass enum_class;
     std::string command;
     std::cin >> command;
-    auto It = commands.find(command);
-    if (It != commands.end()) {
+    auto It = enum_class.commands.find(command);
+    if (It != enum_class.commands.end()) {
         return It->second;
     }
-    return COMMANDS::ERROR;
+    return EnumClass::ERROR;
 }
 
 int CommandReader::read_size() {

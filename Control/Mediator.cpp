@@ -8,7 +8,7 @@ Mediator::Mediator() {
 
 void Mediator::start_game() {
     choose_log_level();
-    Message msg(EnumClass::LOG_GAME_STATUS, "Game is start");
+    Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is start");
     this->controller->get_cur_log()->update(msg);
     std::cout << "Введите размеры игрового поля [10-30]" << '\n';
     std::cout << "\tВведите высоту поля:" << '\n';
@@ -16,7 +16,7 @@ void Mediator::start_game() {
     std::cout << "\tВведите ширину поля:" << '\n';
     int width = command_reader->read_size();
     while (height < 10 || height > 30 || width < 10 || width > 30) {
-        Message msg(EnumClass::LOG_ERROR, "Mediator::start_game(),incorrect values for initializing field");
+        Message msg(EnumClass::LogLevels::LOG_ERROR, "Mediator::start_game(),incorrect values for initializing field");
         this->controller->get_cur_log()->update(msg);
         std::cout << "Один из параметров введен неверно" << '\n';
         std::cout << "Хотите использовать значение по умолчанию (10x10)? [yes/no]" << '\n';
@@ -41,30 +41,30 @@ void Mediator::game() {
 
     controller->update_visualization();
     while (1) {
-        CommandReader::COMMANDS current_command = command_reader->read_command();
-        if (current_command == CommandReader::COMMANDS::EXIT) {
+        EnumClass::COMMANDS current_command = command_reader->read_command();
+        if (current_command == EnumClass::COMMANDS::EXIT) {
             Message msg(EnumClass::LOG_GAME_STATUS, "Game is end, player input the exit command");
             this->controller->get_cur_log()->update(msg);
             break;
         }
-        if (current_command == CommandReader::COMMANDS::LEFT || current_command == CommandReader::COMMANDS::RIGHT || current_command == CommandReader::COMMANDS::UP
-            || current_command == CommandReader::COMMANDS::DOWN) {
+
+        if (current_command != EnumClass::COMMANDS::ERROR) {
             system("cls");
             controller->move_player(current_command);
             controller->update_visualization();
         }
         else {
-            Message msg(EnumClass::LOG_ERROR, "Mediator::game(), incorrect input value");
+            Message msg(EnumClass::LogLevels::LOG_ERROR, "Mediator::game(), incorrect input value");
             this->controller->get_cur_log()->update(msg);
         }
         controller->get_defeat_event()->React();
         if (controller->get_defeat_event()->is_activate()) {
-            Message msg(EnumClass::LOG_GAME_STATUS, "Game is end, player die");
+            Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is end, player die");
             this->controller->get_cur_log()->update(msg);
             break;
         }
         if (controller->get_exit_event()->is_activate()) {
-            Message msg(EnumClass::LOG_GAME_STATUS, "Game is end, layer win");
+            Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is end, player win");
             this->controller->get_cur_log()->update(msg);
             break;
         }

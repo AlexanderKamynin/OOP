@@ -1,2 +1,8 @@
 LOG_GAME_STATUS:Game is start
 LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_GAME_STATUS:Game is start
+LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell
+LOG_ERROR:Altar::React(), incorrect input value
+LOG_ERROR:Altar::React(), incorrect input value
