@@ -74,13 +74,13 @@ void Mediator::game() {
 void Mediator::choose_log_level()
 {
     std::vector<int> numbers;
-    std::cout << "Хотите ли вы логировать игру?[yes/no]\n";
+    std::cout << "Хотите ли вы логировать игру?[yes/no]" << std::endl;
     if (command_reader->read_agree()) {
-        std::cout << "Выберите уровни логирования через пробел\n";
+        std::cout << "Выберите уровни логирования через пробел" << std::endl;
         std::cout
-            << "1 - логирование поля, игрока, событий\n"
-            << "2 - логирование состояния игры\n"
-            << "3 - логирование критических состояний и ошибок\n";
+            << "1 - логирование поля, игрока, событий" << std::endl
+            << "2 - логирование состояния игры" << std::endl
+            << "3 - логирование критических состояний и ошибок" << std::endl;
         while (true) {
             numbers = command_reader->read_numbers();
             if (numbers.size() != 0) {
@@ -91,7 +91,7 @@ void Mediator::choose_log_level()
                     }
                 }
                 if (log_levels.size() != numbers.size()) {
-                    std::cout << "Введите корректно уровни логирования (ex:[1 2 3])\n";
+                    std::cout << "Введите корректно уровни логирования (ex:[1 2 3])" << std::endl;
                 }
                 else {
                     choose_log_printer();
@@ -100,7 +100,7 @@ void Mediator::choose_log_level()
                 }
             }
             else {
-                std::cout << "Пустой ввод. Введите корректно уровни логирования (ex:[1 2 3])\n";
+                std::cout << "Пустой ввод. Введите корректно уровни логирования (ex:[1 2 3])" << std::endl;
             }
         }
     }
@@ -111,11 +111,11 @@ void Mediator::choose_log_level()
 
 void Mediator::choose_log_printer() {
     std::string printer = "";
-    std::cout << "Выберите формат вывода отслеживаемых сведений\n";
+    std::cout << "Выберите формат вывода отслеживаемых сведений" << std::endl;
     std::cout 
-        << "[terminal] - вывод в терминал\n"
-        << "[file] - вывод в файл\n"
-        << "[termfile] - вывод в терминал и файл\n";
+        << "[terminal] - вывод в терминал" << std::endl
+        << "[file] - вывод в файл" << std::endl
+        << "[termfile] - вывод в терминал и файл" << std::endl;
     while (true) {
         std::cin >> printer;
         if (printer == "terminal" || printer == "file" || printer == "termfile") {
