@@ -13,6 +13,7 @@
 #include "../Logging/FilePrinter.h"
 #include "../Logging/TerminalPrinter.h"
 #include "../Logging/TermFilePrinter.h"
+#include "../EnumClass.h"
 #include "CommandReader.h"
 #include <string>
 

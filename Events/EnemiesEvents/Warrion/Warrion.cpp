@@ -2,7 +2,7 @@
 
 void Warrion::React()
 {
-	Message msg("log_game", "react from warrion\n");
+	Message msg(EnumClass::LOG_GAME, "Warrion::React()");
 	this->notify(msg);
 	std::cout << "Вы натолкнулись на воина..." << '\n';
 	preview_battle();

@@ -2,7 +2,7 @@
 
 void Altar::React()
 {
-	Message msg("log_game", "react from altar\n");
+	Message msg(EnumClass::LOG_GAME, "Altar::React()");
 	this->notify(msg);
 	std::cout << "Перед вами алтарь с целебной водой" << '\n';
 	int player_health = player->get_health();
@@ -50,8 +50,8 @@ void Altar::React()
 				break;
 			}
 			else {
-				Message msg1("log_error", "incorrect input in React::Altar()\n");
-				this->notify(msg1);
+				Message msg(EnumClass::LOG_ERROR, "Altar::React(), incorrect input value");
+				this->notify(msg);
 				std::cout << "Введите число 1, 2 или 3..." << '\n';
 			}
 		}

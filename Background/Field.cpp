@@ -126,11 +126,11 @@ void Field::set_player_position(int new_x, int new_y) {
     if (this->field[new_y][new_x]->get_passability() == true) {
         this->x_player_coordinate = new_x;
         this->y_player_coordinate = new_y;
-        Message msg("log_game", "new player position in Field\n");
+        Message msg(EnumClass::LOG_GAME, "Field::set_player_position()");
         this->notify(msg);
     }
     else {
-        Message msg("log_error", "player try to step on impassable cell\n");
+        Message msg(EnumClass::LOG_ERROR, "Field::set_player_position(), player try to step on impassable cell");
         this->notify(msg);
         std::cout << "Прохода нет" << '\n';
     }

@@ -1,19 +1,18 @@
 #pragma once
+#include "../EnumClass.h"
 #include <iostream>
 #include <string>
 
 class Message
 {
 public:
-	Message(std::string prefix, std::string msg);
+	Message(EnumClass::LogLevels log_level, std::string msg);
 
-	std::string get_message();
-
-	std::string get_prefix();
+	EnumClass::LogLevels get_log_level();
 
 	friend std::ostream& operator << (std::ostream& out, const Message& obj);
 private:
 	std::string msg;
-	std::string prefix;
+	EnumClass::LogLevels prefix;
 };
 

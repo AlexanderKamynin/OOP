@@ -1,5 +1,7 @@
 #pragma once
 #include "../Logging/Subject.h"
+#include "../EnumClass.h"
+
 
 class Player : public Subject
 {

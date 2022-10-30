@@ -1,5 +1,6 @@
 #pragma once
 #include "../IEvent.h"
+#include "../../EnumClass.h"
 #include "../../Player/Player.h"
 
 

@@ -11,7 +11,7 @@ LogGame::LogGame(std::vector <ISubject*> subjects)
 
 void LogGame::update(Message& msg)
 {
-	if (msg.get_prefix() == "log_game:") 
+	if (msg.get_log_level() == EnumClass::LOG_GAME)
 	{
 		this->log_printer->print_log(msg);
 	}

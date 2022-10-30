@@ -2,7 +2,7 @@
 
 void ExitEvent::React()
 {
-	Message msg("log_game", "react from ExitEvent\n");
+	Message msg(EnumClass::LOG_GAME, "ExitEvent::React()");
 	this->notify(msg);
 	if (show_exit == false) {
 		this->show_exit = true;

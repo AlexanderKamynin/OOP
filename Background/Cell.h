@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "../Events/IEvent.h"
 #include "../Logging/Subject.h"
-
+#include "../EnumClass.h"
 
 class Cell : public Subject
 {

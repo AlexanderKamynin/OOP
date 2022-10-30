@@ -13,7 +13,7 @@ bool Cell::get_passability()
 
 void Cell::set_passability(bool value)
 {
-    Message msg("log_game", "set_passability from Cell\n");
+    Message msg(EnumClass::LOG_GAME, "Cell::set_passability()");
     this->notify(msg);
     this->passability = value;
 }
@@ -25,7 +25,7 @@ IEvent* Cell::get_event()
 
 void Cell::set_event(IEvent* event)
 {
-    Message msg("log_game", "set_event from Cell\n");
+    Message msg(EnumClass::LOG_GAME, "Cell::set_event()");
     this->notify(msg);
     delete this->event;
     this->event = event;

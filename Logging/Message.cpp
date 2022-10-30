@@ -1,24 +1,21 @@
 #include "Message.h"
 
-Message::Message(std::string prefix, std::string msg)
+Message::Message(EnumClass::LogLevels log_level, std::string msg)
 {
-	this->prefix = prefix + ":";
+	this->prefix = log_level;
 	this->msg = msg;
 }
 
-std::string Message::get_message()
-{
-	return this->msg;
-}
-
-std::string Message::get_prefix()
+EnumClass::LogLevels Message::get_log_level()
 {
 	return this->prefix;
 }
 
 std::ostream& operator<<(std::ostream& out, const Message& obj)
 {
-	out << obj.prefix;
-	out << obj.msg;
+	EnumClass logs;
+	auto It = logs.log_levels.find(obj.prefix);
+	out << It->second;
+	out	<< ":" << obj.msg << '\n';
 	return out;
 }

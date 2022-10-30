@@ -3,7 +3,7 @@
 
 void CeilingCollapse::React()
 {
-	Message msg("log_game", "react from CeilingCollapse\n");
+	Message msg(EnumClass::LOG_GAME, "CeilingCollapse::React()");
 	this->notify(msg);
 	std::cout << "Вы наступили на нажимную плиту. Потолок обваливается..." << '\n';
 	for (int i = 0; i < this->cells_to_change.size(); i++) {

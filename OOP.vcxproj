@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EnumClass.h" />
     <ClInclude Include="Events\GameObjectEvents\Altar\Altar.h" />
     <ClInclude Include="Background\Field.h" />
     <ClInclude Include="Background\Cell.h" />

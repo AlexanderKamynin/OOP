@@ -214,4 +214,6 @@ Controller::~Controller() {
     delete game_obj_event_factory;
     delete exit_event;
     delete defeat_event;
+    delete cur_log;
+    delete log_printer;
 }

@@ -2,7 +2,7 @@
 
 void Rat::React() 
 {
-	Message msg("log_game", "react from rat\n");
+	Message msg(EnumClass::LOG_GAME, "Rat::React()");
 	this->notify(msg);
 	std::cout << "Перед вами крыса..." << '\n';
 	preview_battle();

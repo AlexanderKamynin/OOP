@@ -2,6 +2,7 @@
 #include "../IEvent.h"
 #include "../../Player/Player.h"
 #include "../../Background/Cell.h"
+#include "../../EnumClass.h"
 #include <vector>
 
 

@@ -11,7 +11,7 @@ LogError::LogError(std::vector <ISubject*> subjects)
 
 void LogError::update(Message& msg)
 {
-	if (msg.get_prefix() == "log_error:")
+	if (msg.get_log_level() == EnumClass::LOG_ERROR)
 	{
 		this->log_printer->print_log(msg);
 	}

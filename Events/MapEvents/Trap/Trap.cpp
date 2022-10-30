@@ -3,7 +3,7 @@
 
 void Trap::React()
 {
-	Message msg("log_game", "react from trap\n");
+	Message msg(EnumClass::LOG_GAME, "Trap::React()");
 	this->notify(msg);
 	std::cout << "Óïñ! Ëîâóøêà..." << '\n';
 	player->decrease_health(2);

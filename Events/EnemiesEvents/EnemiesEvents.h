@@ -1,6 +1,7 @@
 #pragma once
 #include "../IEvent.h"
 #include "../../Player/Player.h"
+#include "../../EnumClass.h"
 #include <iostream>
 
 class EnemiesEvents : public IEvent

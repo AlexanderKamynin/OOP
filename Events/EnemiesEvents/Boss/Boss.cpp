@@ -2,7 +2,7 @@
 
 void Boss::React()
 {
-	Message msg("log_game", "react from boss\n");
+	Message msg(EnumClass::LOG_GAME, "Boss::React()");
 	this->notify(msg);
 	std::cout << "Перед вами крупное существо, похоже это босс..." << '\n';
 	preview_battle();

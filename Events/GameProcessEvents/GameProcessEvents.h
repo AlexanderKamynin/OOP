@@ -2,6 +2,7 @@
 #include "../IEvent.h"
 #include "../../Player/Player.h"
 #include "../../Background/Field.h"
+#include "../../EnumClass.h"
 
 class GameProcessEvents : public IEvent
 {

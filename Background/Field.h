@@ -2,6 +2,7 @@
 #include "Cell.h"
 #include "../Player/Player.h"
 #include "../Logging/Subject.h"
+#include "../EnumClass.h"
 #include <iostream>
 #include <vector>
 
