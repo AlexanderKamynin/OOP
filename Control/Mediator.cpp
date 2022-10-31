@@ -76,7 +76,7 @@ void Mediator::choose_log_level()
     std::vector<int> numbers;
     std::cout << "Хотите ли вы логировать игру?[yes/no]" << std::endl;
     if (command_reader->read_agree()) {
-        std::cout << "Выберите уровни логирования через пробел" << std::endl;
+        std::cout << "Выберите уровни логирования через запятую" << std::endl;
         std::cout
             << "1 - логирование поля, игрока, событий" << std::endl
             << "2 - логирование состояния игры" << std::endl
@@ -91,7 +91,7 @@ void Mediator::choose_log_level()
                     }
                 }
                 if (log_levels.size() != numbers.size()) {
-                    std::cout << "Введите корректно уровни логирования (ex:[1 2 3])" << std::endl;
+                    std::cout << "Введите корректно уровни логирования (ex:[1,2,3])" << std::endl;
                 }
                 else {
                     choose_log_printer();
@@ -100,7 +100,7 @@ void Mediator::choose_log_level()
                 }
             }
             else {
-                std::cout << "Пустой ввод. Введите корректно уровни логирования (ex:[1 2 3])" << std::endl;
+                std::cout << "Пустой ввод. Введите корректно уровни логирования (ex:[1,2,3])" << std::endl;
             }
         }
     }
