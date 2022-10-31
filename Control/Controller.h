@@ -8,9 +8,9 @@
 #include "../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
 #include "../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
 #include "../Logging/Observer.h"
+#include "../Logging/ILogPrinter.h"
 #include "../Logging/FilePrinter.h"
 #include "../Logging/TerminalPrinter.h"
-#include "../Logging/TermFilePrinter.h"
 #include "../EnumClass.h"
 #include <string>
 
@@ -28,7 +28,7 @@ public:
 
     void create_logger(std::vector<EnumClass::LogLevels> levels_to_log);
 
-    void create_log_printer(std::string printer);
+    void create_log_printers(std::vector<int> log_printers);
 
     void initializing_logger();
 
@@ -52,6 +52,6 @@ private:
     GameObjectEventFactory* game_obj_event_factory;
     ExitEvent* exit_event;
     DefeatEvent* defeat_event;
-    ILogPrinter* log_printer;
+    std::vector<ILogPrinter*> log_printers;
     Observer* logger;
 };

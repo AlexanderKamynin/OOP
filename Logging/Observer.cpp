@@ -6,14 +6,15 @@ Observer::Observer(std::vector <ISubject*> subjects)
 	for (auto elem : subjects) {
 		elem->attach(this);
 	}
-	this->is_activate = false;
 }
 
 void Observer::update(Message& msg)
 {
-	for (auto elem : this->levels_to_log) {
-		if (elem == msg.get_log_level()){
-			this->log_printer->print_log(msg);
+	for (auto level : this->levels_to_log) {
+		if (level == msg.get_log_level()){
+			for (auto printer : this->log_printers) {
+				printer->print_log(msg);
+			}
 		}
 	}
 }
@@ -26,14 +27,11 @@ void Observer::add_subjects(std::vector<ISubject*> subjects)
 	}
 }
 
-void Observer::activate()
+void Observer::add_log_printers(std::vector<ILogPrinter*> log_printers)
 {
-	this->is_activate = true;
-}
-
-void Observer::add_log_printer(ILogPrinter* log_printer)
-{
-	this->log_printer = log_printer;
+	for (auto elem : log_printers) {
+		this->log_printers.push_back(elem);
+	}
 }
 
 void Observer::add_levels_to_log(std::vector<EnumClass::LogLevels> levels_to_log)

@@ -165,7 +165,6 @@
     <ClInclude Include="Events\GameProcessEvents\ExitEvent\ExitEvent.h" />
     <ClInclude Include="Logging\Subject.h" />
     <ClInclude Include="Logging\TerminalPrinter.h" />
-    <ClInclude Include="Logging\TermFilePrinter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Events\GameObjectEvents\Altar\Altar.cpp" />
@@ -190,7 +189,6 @@
     <ClCompile Include="Events\GameObjectEvents\GameObjectEvent.cpp" />
     <ClCompile Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.cpp" />
     <ClCompile Include="Logging\FilePrinter.cpp" />
-    <ClCompile Include="Logging\TermFilePrinter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Logging\Message.cpp" />
     <ClCompile Include="Logging\Observer.cpp" />

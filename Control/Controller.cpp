@@ -68,7 +68,7 @@ void Controller::create_logger(std::vector<EnumClass::LogLevels> levels_to_log)
 {
     this->logger = new Observer(std::vector<ISubject*>());
     this->logger->add_levels_to_log(levels_to_log);
-    this->logger->add_log_printer(log_printer);
+    this->logger->add_log_printers(log_printers);
 }
 
 void Controller::initializing_logger() {
@@ -81,15 +81,21 @@ void Controller::initializing_logger() {
     this->logger->add_subjects(subj);
 }
 
-void Controller::create_log_printer(std::string printer) {
-    if (printer == "terminal") {
-        this->log_printer = new TerminalPrinter();
-    }
-    else if (printer == "file") {
-        this->log_printer = new FilePrinter();
-    }
-    else if (printer == "termfile") {
-        this->log_printer = new TermFilePrinter();
+void Controller::create_log_printers(std::vector<int> log_printers) {
+    for (auto elem : log_printers) {
+        switch (elem)
+        {
+        case 1: {
+            this->log_printers.push_back(new TerminalPrinter);
+            break;
+        }
+        case 2: {
+            this->log_printers.push_back(new FilePrinter);
+            break;
+        }
+        default:
+            break;
+        }
     }
 }
 
@@ -169,7 +175,9 @@ Observer* Controller::get_logger()
 Controller::~Controller() {
     delete field_view;
     delete logger;
-    delete log_printer;
+    for (int i = 0; i < log_printers.size(); i++) {
+        delete log_printers[i];
+    }
     delete player;
     delete field;
     delete map_event_factory;

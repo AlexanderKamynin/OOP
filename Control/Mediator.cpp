@@ -76,7 +76,7 @@ void Mediator::choose_log_level()
     std::vector<int> numbers;
     std::cout << "Хотите ли вы логировать игру?[yes/no]" << std::endl;
     if (command_reader->read_agree()) {
-        std::cout << "Выберите уровни логирования через запятую" << std::endl;
+        std::cout << "Выберите уровни логирования через запятую:" << std::endl;
         std::cout
             << "1 - логирование поля, игрока, событий" << std::endl
             << "2 - логирование состояния игры" << std::endl
@@ -110,22 +110,32 @@ void Mediator::choose_log_level()
 }
 
 void Mediator::choose_log_printer() {
-    std::string printer = "";
-    std::cout << "Выберите формат вывода отслеживаемых сведений" << std::endl;
-    std::cout 
-        << "[terminal] - вывод в терминал" << std::endl
-        << "[file] - вывод в файл" << std::endl
-        << "[termfile] - вывод в терминал и файл" << std::endl;
+    std::vector<int> numbers;
+    std::cout << "Выберите формат вывода отслеживаемых уровней через запятую:" << std::endl;
+    std::cout
+        << "1 - терминал" << std::endl
+        << "2 - файл" << std::endl;
     while (true) {
-        std::cin >> printer;
-        if (printer == "terminal" || printer == "file" || printer == "termfile") {
-            break;
+        numbers = command_reader->read_numbers();
+        if (numbers.size() != 0) {
+            std::vector<int> log_printers;
+            for (auto num : numbers) {
+                if (num >= 1 && num <= 2) {
+                    log_printers.push_back(num);
+                }
+            }
+            if (log_printers.size() != numbers.size()) {
+                std::cout << "Введите корректно формат вывода (ex:[1,2])" << std::endl;
+            }
+            else {
+                controller->create_log_printers(log_printers);
+                break;
+            }
         }
         else {
-            std::cout << "Введите [terminal][file][termfile]\n";
+            std::cout << "Пустой ввод. Введите корректно формат вывода (ex:[1,2])" << std::endl;
         }
     }
-    controller->create_log_printer(printer);
 }
 
 Mediator::~Mediator() {

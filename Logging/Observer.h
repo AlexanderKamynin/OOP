@@ -12,20 +12,17 @@ public:
 
 	void update(Message& msg) override;
 
-	void add_subjects(std::vector<ISubject*> subjects) override;
+	void add_subjects(std::vector<ISubject*> subjects);
 
-	void add_log_printer(ILogPrinter* log_printer) override;
+	void add_log_printers(std::vector<ILogPrinter*> log_printers);
 
 	void add_levels_to_log(std::vector<EnumClass::LogLevels> levels_to_log);
 
-	void activate();
-
 	~Observer();
 private:
-	ILogPrinter* log_printer;
+	std::vector<ILogPrinter*> log_printers;
 	std::vector<ISubject*> subjects;
 	std::vector<EnumClass::LogLevels> levels_to_log;
-	bool is_activate;
 };
 
 
