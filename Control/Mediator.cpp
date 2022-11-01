@@ -87,10 +87,19 @@ void Mediator::choose_log_level()
                 std::vector<EnumClass::LogLevels> log_levels;
                 for (auto num : numbers) {
                     if (num >= 1 && num <= 3) {
-                        log_levels.push_back((EnumClass::LogLevels)num);
+                        bool is_contain = false;
+                        for (int i = 0; i < log_levels.size(); i++) {
+                            if (log_levels[i] == num) {
+                                is_contain = true;
+                                break;
+                            }
+                        }
+                        if (is_contain == false) {
+                            log_levels.push_back((EnumClass::LogLevels)num);
+                        }
                     }
                 }
-                if (log_levels.size() != numbers.size()) {
+                if (log_levels.size() == 0) {
                     std::cout << "Введите корректно уровни логирования (ex:[1,2,3])" << std::endl;
                 }
                 else {
@@ -100,7 +109,7 @@ void Mediator::choose_log_level()
                 }
             }
             else {
-                std::cout << "Пустой ввод. Введите корректно уровни логирования (ex:[1,2,3])" << std::endl;
+                std::cout << "Введите корректно уровни логирования (ex:[1,2,3])" << std::endl;
             }
         }
     }
@@ -121,10 +130,19 @@ void Mediator::choose_log_printer() {
             std::vector<int> log_printers;
             for (auto num : numbers) {
                 if (num >= 1 && num <= 2) {
-                    log_printers.push_back(num);
+                    bool is_contain = false;
+                    for (int i = 0; i < log_printers.size(); i++) {
+                        if (log_printers[i] == num) {
+                            is_contain = true;
+                            break;
+                        }
+                    }
+                    if (is_contain == false) {
+                        log_printers.push_back(num);
+                    }
                 }
             }
-            if (log_printers.size() != numbers.size()) {
+            if (log_printers.size() == 0) {
                 std::cout << "Введите корректно формат вывода (ex:[1,2])" << std::endl;
             }
             else {
@@ -133,7 +151,7 @@ void Mediator::choose_log_printer() {
             }
         }
         else {
-            std::cout << "Пустой ввод. Введите корректно формат вывода (ex:[1,2])" << std::endl;
+            std::cout << "Введите корректно формат вывода (ex:[1,2])" << std::endl;
         }
     }
 }

@@ -37,16 +37,7 @@ void Observer::add_log_printers(std::vector<ILogPrinter*> log_printers)
 void Observer::add_levels_to_log(std::vector<EnumClass::LogLevels> levels_to_log)
 {
 	for (auto elem : levels_to_log) {
-		bool is_contain = false;
-		for (int i = 0; i < this->levels_to_log.size(); i++) {
-			if (this->levels_to_log[i] == elem) {
-				is_contain = true;
-				break;
-			}
-		}
-		if (is_contain == false) {
-			this->levels_to_log.push_back(elem);
-		}
+		this->levels_to_log.push_back(elem);
 	}
 }
 
