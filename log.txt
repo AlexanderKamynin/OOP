@@ -50,3 +50,230 @@ LOG_GAME:Field::set_player_position()
 LOG_GAME:Player::increase_step()
 LOG_ERROR:Field::set_player_position(), player try to step on impassable cell
 LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_GAME_STATUS:Game is start
+LOG_ERROR:Mediator::start_game(),incorrect values for initializing field
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1,0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Trap::React()
+LOG_GAME:Player::decrease_health()
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1,1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2,1
+LOG_GAME:Player::increase_step()
+LOG_GAME:CeilingCollapse::React()
+LOG_GAME:Cell::set_passability()
+LOG_GAME:Cell::set_passability()
+LOG_GAME:Cell::set_passability()
+LOG_GAME:Cell::set_passability()
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 3,1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 4,1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5,1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 6,1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 6,2
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 6,3
+LOG_GAME:Player::increase_step()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7,3
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7,4
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7,5
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7,6
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7,7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Rat::React()
+LOG_GAME:Player::decrease_health()
+LOG_GAME:Player::add_gold()
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 8,7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 0,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 0,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,6
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,5
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,4
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,5
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,6
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,8
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 9,9
+LOG_GAME:Player::increase_step()
+LOG_GAME:ExitEvent::React()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell
+LOG_GAME:ExitEvent::React()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 0,9
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 0,0
+LOG_GAME:Player::increase_step()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1,0
+LOG_GAME:Player::increase_step()
+LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_GAME_STATUS:Game is start
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Trap::React()
+LOG_GAME:Player::decrease_health()
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;2
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 0;2
+LOG_GAME:Player::increase_step()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell [x][y]0;1
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell [x][y]0;1
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;2
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 0;0
+LOG_GAME:Player::increase_step()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell [x][y]0;1
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;2
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 0;2
+LOG_GAME:Player::increase_step()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell [x][y]0;1
+LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Trap::React()
+LOG_GAME:Player::decrease_health()
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:CeilingCollapse::React()
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 3;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Trap::React()
+LOG_GAME:Player::decrease_health()
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 3;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:LockedTreasure::React()
+LOG_GAME_STATUS:Game is start
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Trap::React()
+LOG_GAME:Player::decrease_health(), damage value: 2
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:CeilingCollapse::React()
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 3;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 3;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:LockedTreasure::React()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 4;0
+LOG_GAME:Player::increase_step()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell [x][y]: 5;0
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 4;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5;2
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5;3
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5;4
+LOG_GAME:Player::increase_step()
+LOG_ERROR:Field::set_player_position(), player try to step on impassable cell [x][y]: 6;4
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5;3
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 6;3
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7;3
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7;4
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 7;5
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 6;5
+LOG_GAME:Player::increase_step()
+LOG_GAME:UnlockedTreasure::React()
+LOG_GAME:Player::add_gold(), gold to add: 100
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 6;6
+LOG_GAME:Player::increase_step()
+LOG_GAME:Warrion::React()
+LOG_GAME:Player::decrease_health(), damage value: 5
+LOG_GAME:Player::decrease_health(), damage value: 5
+LOG_GAME:Player::decrease_health(), damage value: 5
+LOG_GAME:Player::decrease_health(), damage value: 5
+LOG_GAME:Player::add_gold(), gold to add: 30
+LOG_GAME:Player::add_passkey(), passkey to add: 2
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5;6
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 5;7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 4;7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 3;7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2;7
+LOG_GAME:Player::increase_step()
+LOG_GAME:Altar::React()
+LOG_GAME:Player::increase_health(), health to add: 22
+LOG_GAME:Player::take_gold(), gold to take: 44
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2;8
+LOG_GAME:Player::increase_step()
+LOG_GAME_STATUS:Game is end, player input the exit command

@@ -13,7 +13,7 @@ bool Cell::get_passability()
 
 void Cell::set_passability(bool value)
 {
-    Message msg(EnumClass::LOG_GAME, "Cell::set_passability()");
+    Message msg(EnumClass::LOG_GAME, "Cell::set_passability() in value: " + std::to_string(value));
     this->notify(msg);
     this->passability = value;
 }

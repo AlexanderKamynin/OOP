@@ -16,13 +16,13 @@ int Player::get_player_attack()
 
 void Player::increase_health(int health_to_add)
 {
-    Message msg(EnumClass::LOG_GAME, "Player::increase_health()");
+    Message msg(EnumClass::LogLevels::LOG_GAME, "Player::increase_health(), health to add: " + std::to_string(health_to_add));
     this->notify(msg);
     this->hp += health_to_add;
 }
 
 void Player::decrease_health(int damage) {
-    Message msg(EnumClass::LOG_GAME, "Player::decrease_health()");
+    Message msg(EnumClass::LogLevels::LOG_GAME, "Player::decrease_health(), damage value: " + std::to_string(damage));
     this->notify(msg);
     this->hp -= damage;
 }
@@ -44,7 +44,7 @@ int Player::get_step()
 
 void Player::increase_step()
 {
-    Message msg(EnumClass::LOG_GAME, "Player::increase_step()");
+    Message msg(EnumClass::LogLevels::LOG_GAME, "Player::increase_step()");
     this->notify(msg);
     this->step++;
 }
@@ -56,14 +56,14 @@ int Player::get_gold()
 
 void Player::add_gold(int gold)
 {
-    Message msg(EnumClass::LOG_GAME, "Player::add_gold()");
+    Message msg(EnumClass::LogLevels::LOG_GAME, "Player::add_gold(), gold to add: " + std::to_string(gold));
     this->notify(msg);
     this->gold += gold;
 }
 
 void Player::take_gold(int gold)
 {
-    Message msg(EnumClass::LOG_GAME, "Player::take_gold()");
+    Message msg(EnumClass::LogLevels::LOG_GAME, "Player::take_gold(), gold to take: " + std::to_string(gold));
     this->notify(msg);
     this->gold -= gold;
 }
@@ -75,14 +75,14 @@ int Player::get_passkey()
 
 void Player::add_passkey(int passkey)
 {
-    Message msg(EnumClass::LOG_GAME, "Player::add_passkey()");
+    Message msg(EnumClass::LogLevels::LOG_GAME, "Player::add_passkey(), passkey to add: " + std::to_string(passkey));
     this->notify(msg);
     this->passkey += passkey;
 }
 
 void Player::take_passkey()
 {
-    Message msg(EnumClass::LOG_GAME, "Player::take_passkey()");
+    Message msg(EnumClass::LogLevels::LOG_GAME, "Player::take_passkey()");
     this->notify(msg);
     this->passkey -= 1;
 }
