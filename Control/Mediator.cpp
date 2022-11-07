@@ -35,10 +35,7 @@ void Mediator::start_game() {
 }
 
 void Mediator::game() {
-    std::cout << "Управление:\nналевo - " << "a" << "\nнаправо - " << "d"
-        << "\nвверх - " << "w" << "\nвниз - " << "s" << '\n';
-    std::cout << "Выход из игры - " << "exit" << '\n';
-
+    print_commands();
     controller->update_visualization();
     while (1) {
         EnumClass::COMMANDS current_command = command_reader->read_command();
@@ -153,6 +150,15 @@ void Mediator::choose_log_printer() {
         else {
             std::cout << "Введите корректно формат вывода (ex:[1,2])" << std::endl;
         }
+    }
+}
+
+void Mediator::print_commands()
+{
+    EnumClass enum_class;
+    std::cout << "Команды управления:" << '\n';
+    for (auto elem : this->command_reader->get_setting()->get_commands()) {
+        std::cout << elem.second << " - " << enum_class.commands_info[elem.first] << '\n';
     }
 }
 

@@ -151,6 +151,7 @@
     <ClInclude Include="EventsFactory\MapEventFactory\MapEventFactory.h" />
     <ClInclude Include="Events\GameObjectEvents\GameObjectEvent.h" />
     <ClInclude Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.h" />
+    <ClInclude Include="Control\Settings\Settings.h" />
     <ClInclude Include="Logging\FilePrinter.h" />
     <ClInclude Include="Logging\ISubject.h" />
     <ClInclude Include="Logging\IObserver.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="Events\GameProcessEvents\GameProcessEvents.cpp" />
     <ClCompile Include="Events\GameObjectEvents\GameObjectEvent.cpp" />
     <ClCompile Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.cpp" />
+    <ClCompile Include="Control\Settings\Settings.cpp" />
     <ClCompile Include="Logging\FilePrinter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Logging\Message.cpp" />
@@ -202,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="log.txt" />
+    <Text Include="settings.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

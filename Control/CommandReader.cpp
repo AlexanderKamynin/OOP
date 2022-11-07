@@ -1,13 +1,17 @@
 #include "CommandReader.h"
 
+CommandReader::CommandReader() {
+    this->settings = new Settings();
+    this->settings->read_settings();
+}
 
 EnumClass::COMMANDS CommandReader::read_command() {
-    EnumClass enum_class;
     std::string command;
     std::cin >> command;
-    auto It = enum_class.commands.find(command);
-    if (It != enum_class.commands.end()) {
-        return It->second;
+    for (auto elem : this->settings->get_commands()) {
+        if (elem.second == command) {
+            return elem.first;
+        }
     }
     return EnumClass::ERROR;
 }
@@ -34,6 +38,12 @@ bool CommandReader::read_agree()
         }
         std::cout << "¬ведите [yes/no]" << '\n';
     }
+    return false;
+}
+
+Settings* CommandReader::get_setting()
+{
+    return this->settings;
 }
 
 std::vector<int> CommandReader::read_numbers()
@@ -75,4 +85,8 @@ bool CommandReader::string_is_digit(std::string str) {
             return false;
     }
     return true;
+}
+
+CommandReader::~CommandReader() {
+    delete this->settings;
 }

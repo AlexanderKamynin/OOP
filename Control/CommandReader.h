@@ -1,5 +1,6 @@
 #pragma once
 #include "../EnumClass.h"
+#include "Settings/Settings.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,7 +9,7 @@
 class CommandReader {
 public:
 
-    CommandReader() = default;
+    CommandReader();
 
     EnumClass::COMMANDS read_command();
 
@@ -18,7 +19,11 @@ public:
 
     bool read_agree();
 
-    ~CommandReader() = default;
+    Settings* get_setting();
+
+    ~CommandReader();
 private:
+    Settings* settings;
+
     bool string_is_digit(std::string str);
 };

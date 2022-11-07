@@ -26,12 +26,20 @@ public:
 		ERROR
 	};
 
-	std::map<std::string, COMMANDS> commands = {
-		{"a", COMMANDS::LEFT},
-		{"d", COMMANDS::RIGHT},
-		{"w", COMMANDS::UP},
-		{"s", COMMANDS::DOWN},
-		{"exit", COMMANDS::EXIT}
+	std::map<std::string, COMMANDS> instruction_prefix = {
+		{"LEFT", COMMANDS::LEFT},
+		{"RIGHT", COMMANDS::RIGHT},
+		{"UP", COMMANDS::UP},
+		{"DOWN", COMMANDS::DOWN},
+		{"EXIT", COMMANDS::EXIT}
+	};
+
+	std::map<COMMANDS, std::string> commands_info = {
+		{COMMANDS::LEFT, "Влево"},
+		{COMMANDS::RIGHT, "Вправо"},
+		{COMMANDS::UP, "Вверх"},
+		{COMMANDS::DOWN, "Вниз"},
+		{COMMANDS::EXIT, "Выход из игры"}
 	};
 };
 

@@ -15,6 +15,7 @@ private:
     void game();
     void choose_log_level();
     void choose_log_printer();
+    void print_commands();
     CommandReader* command_reader;
     Controller* controller;
 };

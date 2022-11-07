@@ -129,6 +129,9 @@
     <ClInclude Include="Logging\Observer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Control\Settings\Settings.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background\Field.cpp">
@@ -227,8 +230,12 @@
     <ClCompile Include="Logging\Observer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Control\Settings\Settings.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="log.txt" />
+    <Text Include="settings.txt" />
   </ItemGroup>
 </Project>
