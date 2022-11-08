@@ -1,6 +1,8 @@
 #pragma once
-#include "CommandReader.h"
+#include "../Control/CommandReader/ICommandReader.h"
+#include "../Control/CommandReader/CommandReader.h"
 #include "Controller.h"
+#include "../Control/Commands/Commands.h"
 #include <string>
 
 class Mediator {
@@ -16,6 +18,7 @@ private:
     void choose_log_level();
     void choose_log_printer();
     void print_commands();
-    CommandReader* command_reader;
+    ICommandReader* command_reader;
     Controller* controller;
+    Commands* commands;
 };

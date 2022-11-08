@@ -39,7 +39,7 @@
     <ClInclude Include="Control\Controller.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Control\CommandReader.h">
+    <ClInclude Include="Control\CommandReader\CommandReader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Control\Mediator.h">
@@ -129,7 +129,13 @@
     <ClInclude Include="Logging\Observer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Control\Settings\Settings.h">
+    <ClInclude Include="Control\ControlReader\ControlReader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\Commands\Commands.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\CommandReader\ICommandReader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -158,7 +164,7 @@
     <ClCompile Include="Control\Controller.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Control\CommandReader.cpp">
+    <ClCompile Include="Control\CommandReader\CommandReader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Control\Mediator.cpp">
@@ -230,12 +236,15 @@
     <ClCompile Include="Logging\Observer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Control\Settings\Settings.cpp">
+    <ClCompile Include="Control\ControlReader\ControlReader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\Commands\Commands.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="log.txt" />
-    <Text Include="settings.txt" />
+    <Text Include="control.txt" />
   </ItemGroup>
 </Project>

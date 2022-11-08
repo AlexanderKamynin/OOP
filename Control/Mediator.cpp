@@ -2,7 +2,8 @@
 
 
 Mediator::Mediator() {
-    this->command_reader = new CommandReader;
+    this->commands = new Commands();
+    this->command_reader = new CommandReader(this->commands);
     this->controller = new Controller;
 }
 
@@ -12,9 +13,9 @@ void Mediator::start_game() {
     this->controller->get_logger()->update(msg);
     std::cout << "Введите размеры игрового поля [10-30]" << '\n';
     std::cout << "\tВведите высоту поля:" << '\n';
-    int height = command_reader->read_size();
+    int height = command_reader->read_number();
     std::cout << "\tВведите ширину поля:" << '\n';
-    int width = command_reader->read_size();
+    int width = command_reader->read_number();
     while (height < 10 || height > 30 || width < 10 || width > 30) {
         Message msg(EnumClass::LogLevels::LOG_ERROR, "Mediator::start_game(),incorrect values for initializing field");
         this->controller->get_logger()->update(msg);
@@ -25,9 +26,9 @@ void Mediator::start_game() {
         }
         else {
             std::cout << "Введите высоту поля:" << '\n';
-            height = command_reader->read_size();
+            height = command_reader->read_number();
             std::cout << "Введите ширину поля:" << '\n';
-            width = command_reader->read_size();
+            width = command_reader->read_number();
         }
     }
     controller->create_field(height, width);
@@ -155,10 +156,9 @@ void Mediator::choose_log_printer() {
 
 void Mediator::print_commands()
 {
-    EnumClass enum_class;
     std::cout << "Команды управления:" << '\n';
-    for (auto elem : this->command_reader->get_setting()->get_commands()) {
-        std::cout << elem.second << " - " << enum_class.commands_info[elem.first] << '\n';
+    for (auto elem : this->commands->get_commands()) {
+        std::cout << elem.second << " - " << this->commands->get_commands_info()[elem.first] << '\n';
     }
 }
 

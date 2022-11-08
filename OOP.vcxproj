@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Control\Commands\Commands.h" />
     <ClInclude Include="EnumClass.h" />
     <ClInclude Include="Events\GameObjectEvents\Altar\Altar.h" />
     <ClInclude Include="Background\Field.h" />
@@ -137,7 +138,7 @@
     <ClInclude Include="EventsFactory\EnemiesEventFactory\EnemiesEventFactory.h" />
     <ClInclude Include="Events\GameProcessEvents\DefeatEvent\DefeatEvent.h" />
     <ClInclude Include="Events\EnemiesEvents\Boss\Boss.h" />
-    <ClInclude Include="Control\CommandReader.h" />
+    <ClInclude Include="Control\CommandReader\CommandReader.h" />
     <ClInclude Include="Control\Controller.h" />
     <ClInclude Include="Events\EnemiesEvents\EnemiesEvents.h" />
     <ClInclude Include="Events\IEvent.h" />
@@ -151,7 +152,8 @@
     <ClInclude Include="EventsFactory\MapEventFactory\MapEventFactory.h" />
     <ClInclude Include="Events\GameObjectEvents\GameObjectEvent.h" />
     <ClInclude Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.h" />
-    <ClInclude Include="Control\Settings\Settings.h" />
+    <ClInclude Include="Control\ControlReader\ControlReader.h" />
+    <ClInclude Include="Control\CommandReader\ICommandReader.h" />
     <ClInclude Include="Logging\FilePrinter.h" />
     <ClInclude Include="Logging\ISubject.h" />
     <ClInclude Include="Logging\IObserver.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="Logging\TerminalPrinter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Control\Commands\Commands.cpp" />
     <ClCompile Include="Events\GameObjectEvents\Altar\Altar.cpp" />
     <ClCompile Include="Background\Field.cpp" />
     <ClCompile Include="Background\Cell.cpp" />
@@ -179,7 +182,7 @@
     <ClCompile Include="EventsFactory\MapEventFactory\MapEventFactory.cpp" />
     <ClCompile Include="Events\GameProcessEvents\DefeatEvent\DefeatEvent.cpp" />
     <ClCompile Include="Events\EnemiesEvents\Boss\Boss.cpp" />
-    <ClCompile Include="Control\CommandReader.cpp" />
+    <ClCompile Include="Control\CommandReader\CommandReader.cpp" />
     <ClCompile Include="Control\Controller.cpp" />
     <ClCompile Include="Events\EnemiesEvents\EnemiesEvents.cpp" />
     <ClCompile Include="Events\EnemiesEvents\Rat\Rat.cpp" />
@@ -189,7 +192,7 @@
     <ClCompile Include="Events\GameProcessEvents\GameProcessEvents.cpp" />
     <ClCompile Include="Events\GameObjectEvents\GameObjectEvent.cpp" />
     <ClCompile Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.cpp" />
-    <ClCompile Include="Control\Settings\Settings.cpp" />
+    <ClCompile Include="Control\ControlReader\ControlReader.cpp" />
     <ClCompile Include="Logging\FilePrinter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Logging\Message.cpp" />
@@ -204,7 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="log.txt" />
-    <Text Include="settings.txt" />
+    <Text Include="control.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

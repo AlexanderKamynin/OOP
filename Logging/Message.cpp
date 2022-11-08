@@ -13,8 +13,7 @@ EnumClass::LogLevels Message::get_log_level()
 
 std::ostream& operator<<(std::ostream& out, const Message& obj)
 {
-	EnumClass logs;
-	auto It = logs.log_levels.find(obj.prefix);
+	auto It = obj.log_levels.find(obj.prefix);
 	out << It->second;
 	out	<< ":" << obj.msg << '\n';
 	return out;
