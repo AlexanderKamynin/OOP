@@ -22,5 +22,5 @@ public:
     ~CommandReader() = default;
 private:    
     Commands* commands;
-    bool string_is_digit(std::string str);
+    bool string_is_digit(std::string str) override;
 };

@@ -11,6 +11,12 @@ void Mediator::start_game() {
     choose_log_level();
     Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is start");
     this->controller->get_logger()->update(msg);
+    Message msg_control_file(EnumClass::LogLevels::LOG_GAME_STATUS, "Control commands reads from file");
+    this->controller->get_logger()->update(msg_control_file);
+    if (this->commands->commands_file_correct() == false) {
+        Message msg_unsuccessful_control_file(EnumClass::LogLevels::LOG_ERROR, "Control file had incorrect commands. Game used standart control commands");
+        this->controller->get_logger()->update(msg_unsuccessful_control_file);
+    }
     std::cout << "Введите размеры игрового поля [10-30]" << '\n';
     std::cout << "\tВведите высоту поля:" << '\n';
     int height = command_reader->read_number();

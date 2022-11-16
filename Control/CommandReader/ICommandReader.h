@@ -14,6 +14,8 @@ public:
 
     virtual bool read_agree() = 0;
 
+    virtual bool string_is_digit(std::string str) = 0;
+
     virtual ~ICommandReader() = 0 {};
 };
 

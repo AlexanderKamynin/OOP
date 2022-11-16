@@ -12,9 +12,13 @@ public:
 	std::map<EnumClass::COMMANDS, std::string> get_commands();
 
 	std::map<EnumClass::COMMANDS, std::string> get_commands_info();
+	
+	bool commands_file_correct();
 
 	~Commands();
 private:
+	bool commands_file_is_correct;
+
 	ControlReader* control_reader;
 
 	std::map<EnumClass::COMMANDS, std::string> commands = {
@@ -26,11 +30,11 @@ private:
 	};
 
 	std::map<EnumClass::COMMANDS, std::string> commands_info = {
-	{EnumClass::COMMANDS::LEFT, "Влево"},
-	{EnumClass::COMMANDS::RIGHT, "Вправо"},
-	{EnumClass::COMMANDS::UP, "Вверх"},
-	{EnumClass::COMMANDS::DOWN, "Вниз"},
-	{EnumClass::COMMANDS::EXIT, "Выход из игры"}
+		{EnumClass::COMMANDS::LEFT, "Влево"},
+		{EnumClass::COMMANDS::RIGHT, "Вправо"},
+		{EnumClass::COMMANDS::UP, "Вверх"},
+		{EnumClass::COMMANDS::DOWN, "Вниз"},
+		{EnumClass::COMMANDS::EXIT, "Выход из игры"}
 	};
 };
 

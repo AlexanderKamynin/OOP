@@ -383,3 +383,44 @@ LOG_GAME:Field::set_player_position(); new player position [x][y]: 0;8
 LOG_GAME:Player::increase_step()
 LOG_ERROR:Mediator::game(), incorrect input value
 LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_GAME_STATUS:Game is start
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;0
+LOG_GAME:Player::increase_step()
+LOG_GAME:Trap::React()
+LOG_GAME:Player::decrease_health(), damage value: 2
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 1;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 2;1
+LOG_GAME:Player::increase_step()
+LOG_GAME:CeilingCollapse::React()
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_passability() in value: 0
+LOG_GAME:Cell::set_event()
+LOG_GAME:Field::set_player_position(); new player position [x][y]: 3;1
+LOG_GAME:Player::increase_step()
+LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_GAME_STATUS:Game is start
+LOG_GAME_STATUS:Control commands reads from file
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_ERROR:Mediator::game(), incorrect input value
+LOG_GAME_STATUS:Game is end, player input the exit command
+LOG_GAME_STATUS:Game is start
+LOG_GAME_STATUS:Control commands reads from file
+LOG_ERROR:Control file had incorrect commands. Game used standart control commands
+LOG_GAME_STATUS:Game is end, player input the exit command
