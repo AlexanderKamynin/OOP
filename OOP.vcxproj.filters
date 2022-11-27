@@ -138,6 +138,30 @@
     <ClInclude Include="Control\CommandReader\ICommandReader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="LevelsGenerator\FieldGenerator\FieldGenerator.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Rules\RulePlayerSpawn.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Rules\RuleFieldSize.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Rules\MapEventsRules\RuleTrapSpawn.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Strategy\ILevelStrategy.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Strategy\FirstLevel.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Strategy\SecondLevel.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Strategy\LevelContext.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Background\Field.cpp">
@@ -240,6 +264,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Control\Commands\Commands.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelsGenerator\Strategy\FirstLevel.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelsGenerator\Strategy\SecondLevel.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelsGenerator\Strategy\LevelContext.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

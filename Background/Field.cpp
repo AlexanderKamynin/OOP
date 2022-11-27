@@ -2,6 +2,7 @@
 
 
 Field::Field(int height, int width) { 
+    this->player = new Player;
     if (height < 10 || height > 30) {
         this->height = 10;
     }
@@ -98,6 +99,16 @@ int Field::get_width() {
 
 int Field::get_height() {
     return this->height;
+}
+
+Player* Field::get_player()
+{
+    return this->player;
+}
+
+void Field::set_player(Player* player)
+{
+    this->player = player;
 }
 
 std::vector<std::vector<Cell*>> Field::get_field()

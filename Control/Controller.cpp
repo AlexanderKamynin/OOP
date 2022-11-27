@@ -4,27 +4,31 @@
 Controller::Controller() {
     this->field_view = nullptr;
     this->field = nullptr;
-    this->player = new Player;
-    this->map_event_factory = new MapEventFactory(this->player);
-    this->enemies_event_factory = new EnemiesEventFactory(this->player);
-    this->game_obj_event_factory = new GameObjectEventFactory(this->player);
-    GameProcessEventFactory* factory = new GameProcessEventFactory(this->player);
-    this->defeat_event = dynamic_cast<DefeatEvent*>(factory->createDefeatEvent());
-    this->exit_event = dynamic_cast<ExitEvent*>(factory->createExitEvent());
-    delete factory;
+    this->player = nullptr;
+    this->level_context = nullptr;
+    this->log_printers = std::vector<ILogPrinter*>();
+    this->logger = nullptr;
+    this->defeat_event = nullptr;
+    this->exit_event = nullptr;
 }
 
-void Controller::create_field(int height, int width) {
-    this->field = new Field(height, width);
-
-    //проверочное задание клеткам проходимости
-    this->field->get_field()[5][5]->set_passability(false);
-    this->field->get_field()[1][0]->set_passability(false);
-    this->field->get_field()[2][3]->set_passability(false);
-    //
-    create_events();
-    initializing_logger();
+void Controller::create_level(int level)
+{
+    this->level_context = new LevelContext(level);
+    this->field = field;
+    this->player = field->get_player();
     this->field_view = new FieldView(this->field);
+    GameProcessEventFactory* factory = new GameProcessEventFactory(this->player);
+    this->defeat_event = dynamic_cast<DefeatEvent*>(factory->createDefeatEvent());
+    for (int y = 0; y < this->field->get_height(); y++) {
+        for (int x = 0; x < this->field->get_width(); x++) {
+            if (dynamic_cast<ExitEvent*>(this->field->get_field()[y][x])) {
+                this->exit_event = dynamic_cast<ExitEvent*>(this->field->get_field()[y][x]);
+                break;
+            }
+        }
+    }
+    delete factory;
 }
 
 void Controller::move_player(EnumClass::COMMANDS direction) {
@@ -99,44 +103,6 @@ void Controller::create_log_printers(std::vector<int> log_printers) {
     }
 }
 
-void Controller::create_events()
-{
-    //задание выхода
-    this->field->get_field()[9][9]->set_event(exit_event);
-    //
-
-    //проверочное задание ловушки
-    this->field->get_field()[0][1]->set_event(map_event_factory->createTrap());
-    this->field->get_field()[0][2]->set_event(map_event_factory->createTrap());
-    //
-
-    //обрушение
-    std::vector<Cell*> cells_to_change = {
-            this->field->get_field()[0][9],
-            this->field->get_field()[0][5],
-            this->field->get_field()[6][6],
-            this->field->get_field()[4][6],
-            this->field->get_field()[9][2]
-    };
-    this->field->get_field()[1][2]->set_event(map_event_factory->createCeilingCollapse(cells_to_change));
-    // 
-
-    //создание алтаря
-    this->field->get_field()[7][2]->set_event(game_obj_event_factory->createAltar());
-    //
-
-    //проверочное задание сокровищ
-    this->field->get_field()[5][6]->set_event(game_obj_event_factory->createUnlockedTreasure());
-    this->field->get_field()[0][3]->set_event(game_obj_event_factory->createLockedTreasure());
-    //
-
-    //проверочное создание врагов
-    this->field->get_field()[7][7]->set_event(enemies_event_factory->createRat());
-    this->field->get_field()[6][6]->set_event(enemies_event_factory->createWarrion(40, 5, 30, 2));
-    this->field->get_field()[8][8]->set_event(enemies_event_factory->createBoss());
-    //
-}
-
 void Controller::play_event(Cell* cur_cell) {
     IEvent* event = cur_cell->get_event();
     if (event != nullptr) {
@@ -180,9 +146,6 @@ Controller::~Controller() {
     }
     delete player;
     delete field;
-    delete map_event_factory;
-    delete enemies_event_factory;
-    delete game_obj_event_factory;
     delete exit_event;
     delete defeat_event;
 }

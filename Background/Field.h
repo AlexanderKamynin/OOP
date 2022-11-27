@@ -23,6 +23,10 @@ public:
 
     int get_height();
 
+    Player* get_player();
+
+    void set_player(Player* player);
+
     std::pair<int, int> get_player_position();
 
     void set_player_position(int new_x, int new_y);
@@ -32,6 +36,7 @@ public:
     ~Field();
 
 private:
+    Player* player;
     int x_player_coordinate;
     int y_player_coordinate;
     int width;

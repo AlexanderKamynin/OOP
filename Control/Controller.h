@@ -3,22 +3,20 @@
 #include "../Background/Field.h"
 #include "../Background/Cell.h"
 #include "../Background/FieldView.h"
-#include "../EventsFactory/MapEventFactory/MapEventFactory.h"
-#include "../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
-#include "../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
-#include "../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
 #include "../Logging/Observer.h"
 #include "../Logging/ILogPrinter.h"
 #include "../Logging/FilePrinter.h"
 #include "../Logging/TerminalPrinter.h"
+#include "../LevelsGenerator/Strategy/LevelContext.h"
 #include "../EnumClass.h"
 #include <string>
+
 
 class Controller {
 public:
     Controller();
 
-    void create_field(int height, int width);
+    void create_level(int level);
 
     void move_player(EnumClass::COMMANDS direction);
 
@@ -32,8 +30,6 @@ public:
 
     void initializing_logger();
 
-    void create_events();
-
     void play_event(Cell* cur_cell);
 
     DefeatEvent* get_defeat_event();
@@ -46,10 +42,8 @@ public:
 private:
     Player* player;
     Field* field;
+    LevelContext* level_context;
     FieldView* field_view;
-    MapEventFactory* map_event_factory;
-    EnemiesEventFactory* enemies_event_factory;
-    GameObjectEventFactory* game_obj_event_factory;
     ExitEvent* exit_event;
     DefeatEvent* defeat_event;
     std::vector<ILogPrinter*> log_printers;

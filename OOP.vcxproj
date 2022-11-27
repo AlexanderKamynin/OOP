@@ -154,6 +154,10 @@
     <ClInclude Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.h" />
     <ClInclude Include="Control\ControlReader\ControlReader.h" />
     <ClInclude Include="Control\CommandReader\ICommandReader.h" />
+    <ClInclude Include="LevelsGenerator\Strategy\LevelContext.h" />
+    <ClInclude Include="LevelsGenerator\Strategy\FirstLevel.h" />
+    <ClInclude Include="LevelsGenerator\Strategy\ILevelStrategy.h" />
+    <ClInclude Include="LevelsGenerator\FieldGenerator\FieldGenerator.h" />
     <ClInclude Include="Logging\FilePrinter.h" />
     <ClInclude Include="Logging\ISubject.h" />
     <ClInclude Include="Logging\IObserver.h" />
@@ -168,6 +172,10 @@
     <ClInclude Include="Events\GameProcessEvents\ExitEvent\ExitEvent.h" />
     <ClInclude Include="Logging\Subject.h" />
     <ClInclude Include="Logging\TerminalPrinter.h" />
+    <ClInclude Include="LevelsGenerator\Rules\RulePlayerSpawn.h" />
+    <ClInclude Include="LevelsGenerator\Rules\RuleFieldSize.h" />
+    <ClInclude Include="LevelsGenerator\Rules\MapEventsRules\RuleTrapSpawn.h" />
+    <ClInclude Include="LevelsGenerator\Strategy\SecondLevel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Control\Commands\Commands.cpp" />
@@ -193,6 +201,8 @@
     <ClCompile Include="Events\GameObjectEvents\GameObjectEvent.cpp" />
     <ClCompile Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.cpp" />
     <ClCompile Include="Control\ControlReader\ControlReader.cpp" />
+    <ClCompile Include="LevelsGenerator\Strategy\LevelContext.cpp" />
+    <ClCompile Include="LevelsGenerator\Strategy\FirstLevel.cpp" />
     <ClCompile Include="Logging\FilePrinter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Logging\Message.cpp" />
@@ -204,6 +214,7 @@
     <ClCompile Include="Events\GameProcessEvents\ExitEvent\ExitEvent.cpp" />
     <ClCompile Include="Logging\Subject.cpp" />
     <ClCompile Include="Logging\TerminalPrinter.cpp" />
+    <ClCompile Include="LevelsGenerator\Strategy\SecondLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="log.txt" />
