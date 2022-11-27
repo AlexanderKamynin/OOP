@@ -10,7 +10,7 @@ class FieldGenerator
 {
 public:
 	Field* generate() {
-		Field* field = new Field;
+		Field* field = new Field();
 		//распаковка
 		(Rules()(field),...);
 		return field;

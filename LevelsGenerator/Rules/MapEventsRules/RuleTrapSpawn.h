@@ -19,7 +19,7 @@ public:
 					&& field->get_field()[y][x]->get_event() == nullptr
 					&& (x != 0 || y != 0)) {
 					field->get_field()[y][x]->set_passability(true);
-					field->get_field()[y][x]->set_event(event_factory->createTrap());
+					field->get_field()[y][x]->set_event(event_factory.createTrap());
 				}
 			}
 		}

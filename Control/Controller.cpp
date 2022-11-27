@@ -15,8 +15,8 @@ Controller::Controller() {
 void Controller::create_level(int level)
 {
     this->level_context = new LevelContext(level);
-    this->field = field;
-    this->player = field->get_player();
+    this->field = this->level_context->get_field();
+    this->player = this->field->get_player();
     this->field_view = new FieldView(this->field);
     GameProcessEventFactory* factory = new GameProcessEventFactory(this->player);
     this->defeat_event = dynamic_cast<DefeatEvent*>(factory->createDefeatEvent());

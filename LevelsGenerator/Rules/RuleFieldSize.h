@@ -7,6 +7,7 @@ class RuleFieldSize
 {
 public:
 	void operator()(Field* field) {
+		delete field;
 		field = new Field(height, width);
 	}
 };

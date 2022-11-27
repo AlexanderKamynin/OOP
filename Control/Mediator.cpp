@@ -56,17 +56,17 @@ void Mediator::game() {
             Message msg(EnumClass::LogLevels::LOG_ERROR, "Mediator::game(), incorrect input value");
             this->controller->get_logger()->update(msg);
         }
-        controller->get_defeat_event()->React();
-        if (controller->get_defeat_event()->is_activate()) {
-            Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is end, player die");
-            this->controller->get_logger()->update(msg);
-            break;
-        }
-        if (controller->get_exit_event()->is_activate()) {
-            Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is end, player win");
-            this->controller->get_logger()->update(msg);
-            break;
-        }
+        //controller->get_defeat_event()->React();
+        //if (controller->get_defeat_event()->is_activate()) {
+        //    Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is end, player die");
+        //    this->controller->get_logger()->update(msg);
+        //    break;
+        //}
+        //if (controller->get_exit_event()->is_activate()) {
+        //    Message msg(EnumClass::LogLevels::LOG_GAME_STATUS, "Game is end, player win");
+        //    this->controller->get_logger()->update(msg);
+        //    break;
+        //}
     }
 }
 
