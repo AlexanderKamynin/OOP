@@ -18,7 +18,7 @@ void Controller::create_level(int level)
     this->field = this->level_context->get_field();
     this->player = this->field->get_player();
     this->field_view = new FieldView(this->field);
-    GameProcessEventFactory* factory = new GameProcessEventFactory(this->player);
+    GameProcessEventFactory* factory = new GameProcessEventFactory(this->field);
     this->defeat_event = dynamic_cast<DefeatEvent*>(factory->createDefeatEvent());
     for (int y = 0; y < this->field->get_height(); y++) {
         for (int x = 0; x < this->field->get_width(); x++) {

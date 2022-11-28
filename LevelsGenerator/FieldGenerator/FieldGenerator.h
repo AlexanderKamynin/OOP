@@ -2,7 +2,7 @@
 #include "../../Background/Field.h"
 #include "../Rules/RuleFieldSize.h"
 #include "../Rules/RulePlayerSpawn.h"
-#include "../Rules/FieldEventsRules/RuleTrapSpawn.h"
+#include "../Rules/FieldEventsRules/RuleMapEventSpawn.h"
 #include "../Rules/FieldEventsRules/RuleExitSpawn.h"
 
 

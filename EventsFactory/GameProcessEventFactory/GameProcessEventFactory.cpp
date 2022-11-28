@@ -6,5 +6,5 @@ IEvent* GameProcessEventFactory::createExitEvent() {
 }
 
 IEvent* GameProcessEventFactory::createDefeatEvent() {
-	return new DefeatEvent(this->player);
+	return new DefeatEvent(this->field->get_player());
 }

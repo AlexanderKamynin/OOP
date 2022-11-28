@@ -6,7 +6,7 @@
 
 class EnemiesEventFactory : public IEventFactory {
 public:
-	EnemiesEventFactory(Player* player) : IEventFactory(player) {};
+	EnemiesEventFactory(Field* player) : IEventFactory(field) {};
 
 	IEvent* createRat(int health = 20, int damage = 3, int gold = 10, int passkey = 0);
 

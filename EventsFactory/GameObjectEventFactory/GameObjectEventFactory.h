@@ -9,7 +9,7 @@
 class GameObjectEventFactory : public IEventFactory
 {
 public:
-	GameObjectEventFactory(Player* player) : IEventFactory(player) {};
+	GameObjectEventFactory(Field* field) : IEventFactory(field) {};
 
 	IEvent* createAltar();
 

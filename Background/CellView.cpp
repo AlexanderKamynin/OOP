@@ -1,4 +1,6 @@
 #include "CellView.h"
+#include "../Events/MapEvents/Trap/Trap.h"
+#include "../Events/MapEvents/CeilingCollapse/CeilingCollapse.h"
 
 
 void CellView::draw_cell(Cell* cell) {
@@ -12,6 +14,12 @@ void CellView::draw_cell(Cell* cell) {
         }
         else if (dynamic_cast<EnemiesEvents*>(cell->get_event())) {
             std::cout << enemiesCell;
+        }
+        else if (dynamic_cast<Trap*>(cell->get_event())) {
+            std::cout << "Û";
+        }
+        else if (dynamic_cast<CeilingCollapse*>(cell->get_event())) {
+            std::cout << "Ú";
         }
         else if (dynamic_cast<ExitEvent*>(cell->get_event())) {
             if (dynamic_cast<ExitEvent*>(cell->get_event())->is_show()) {

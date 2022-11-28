@@ -1,11 +1,13 @@
 #pragma once
 #include "../Events/IEvent.h"
-#include "../Player/Player.h"
+#include "../Background/Field.h"
+#include <random>
+#include <ctime>
 
 
 class IEventFactory {
 public:
-	IEventFactory(Player* player) : player(player) {};
+	IEventFactory(Field* field) : field(field) {};
 protected:
-	Player* player;
+	Field* field;
 };

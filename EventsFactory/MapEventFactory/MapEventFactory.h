@@ -1,6 +1,6 @@
 #pragma once
 #include "../IEventFactory.h"
-#include "../../Player/Player.h"
+#include "../../Background/Field.h"
 #include "../../Events/MapEvents/Trap/Trap.h"
 #include "../../Events/MapEvents/CeilingCollapse/CeilingCollapse.h"
 
@@ -8,9 +8,16 @@
 class MapEventFactory : public IEventFactory
 {
 public:
-	MapEventFactory(Player* player) : IEventFactory(player) {};
+	MapEventFactory(Field* field) : IEventFactory(field) {};
 	
+	enum MapEventToCreate {
+		TrapEvent,
+		CeilingCollapseEvent
+	};
+
+	IEvent* createMapEvent(MapEventToCreate event_to_create);
+private:
 	IEvent* createTrap();
 
-	IEvent* createCeilingCollapse(std::vector<Cell*> cells_to_change);
+	IEvent* createCeilingCollapse();
 };

@@ -7,7 +7,7 @@ class RuleExitSpawn
 {
 public:
 	void operator()(Field* field) {
-		Factory event_factory(field->get_player());
+		Factory event_factory(field);
 		int cur_x = x % field->get_width();
 		int cur_y = y % field->get_height();
 		bool flag = false;

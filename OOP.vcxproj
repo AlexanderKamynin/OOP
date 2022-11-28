@@ -149,13 +149,13 @@
     <ClInclude Include="Events\GameObjectEvents\ITreasure\ITreasure.h" />
     <ClInclude Include="Events\GameObjectEvents\ITreasure\LockedTreasure.h" />
     <ClInclude Include="Events\GameProcessEvents\GameProcessEvents.h" />
-    <ClInclude Include="EventsFactory\IEventFactory.h" />
     <ClInclude Include="EventsFactory\GameProcessEventFactory\GameProcessEventFactory.h" />
     <ClInclude Include="EventsFactory\MapEventFactory\MapEventFactory.h" />
     <ClInclude Include="Events\GameObjectEvents\GameObjectEvent.h" />
     <ClInclude Include="EventsFactory\GameObjectEventFactory\GameObjectEventFactory.h" />
     <ClInclude Include="Control\ControlReader\ControlReader.h" />
     <ClInclude Include="Control\CommandReader\ICommandReader.h" />
+    <ClInclude Include="EventsFactory\IEventFactory.h" />
     <ClInclude Include="LevelsGenerator\Strategy\LevelContext.h" />
     <ClInclude Include="LevelsGenerator\Strategy\FirstLevel.h" />
     <ClInclude Include="LevelsGenerator\Strategy\ILevelStrategy.h" />
@@ -176,7 +176,7 @@
     <ClInclude Include="Logging\TerminalPrinter.h" />
     <ClInclude Include="LevelsGenerator\Rules\RulePlayerSpawn.h" />
     <ClInclude Include="LevelsGenerator\Rules\RuleFieldSize.h" />
-    <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleTrapSpawn.h" />
+    <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleMapEventSpawn.h" />
     <ClInclude Include="LevelsGenerator\Strategy\SecondLevel.h" />
     <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleExitSpawn.h" />
   </ItemGroup>
