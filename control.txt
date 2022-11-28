@@ -1,5 +1,5 @@
-LEFT:left
-RIGHT:right
-UP:up
-DOWN:down
+LEFT:a
+RIGHT:d
+UP:w
+DOWN:s
 EXIT:exit

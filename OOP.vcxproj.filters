@@ -147,7 +147,7 @@
     <ClInclude Include="LevelsGenerator\Rules\RuleFieldSize.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="LevelsGenerator\Rules\MapEventsRules\RuleTrapSpawn.h">
+    <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleTrapSpawn.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="LevelsGenerator\Strategy\ILevelStrategy.h">
@@ -160,6 +160,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="LevelsGenerator\Strategy\LevelContext.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleExitSpawn.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

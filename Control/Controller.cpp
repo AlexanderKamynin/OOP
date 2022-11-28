@@ -22,12 +22,14 @@ void Controller::create_level(int level)
     this->defeat_event = dynamic_cast<DefeatEvent*>(factory->createDefeatEvent());
     for (int y = 0; y < this->field->get_height(); y++) {
         for (int x = 0; x < this->field->get_width(); x++) {
-            if (dynamic_cast<ExitEvent*>(this->field->get_field()[y][x])) {
-                this->exit_event = dynamic_cast<ExitEvent*>(this->field->get_field()[y][x]);
+            IEvent* event = this->field->get_field()[y][x]->get_event();
+            if (dynamic_cast<ExitEvent*>(event)) {
+                this->exit_event = dynamic_cast<ExitEvent*>(event);
                 break;
             }
         }
     }
+    this->initializing_logger();
     delete factory;
 }
 

@@ -176,8 +176,9 @@
     <ClInclude Include="Logging\TerminalPrinter.h" />
     <ClInclude Include="LevelsGenerator\Rules\RulePlayerSpawn.h" />
     <ClInclude Include="LevelsGenerator\Rules\RuleFieldSize.h" />
-    <ClInclude Include="LevelsGenerator\Rules\MapEventsRules\RuleTrapSpawn.h" />
+    <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleTrapSpawn.h" />
     <ClInclude Include="LevelsGenerator\Strategy\SecondLevel.h" />
+    <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleExitSpawn.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Control\Commands\Commands.cpp" />
