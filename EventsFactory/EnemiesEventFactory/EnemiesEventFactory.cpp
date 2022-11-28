@@ -1,16 +1,41 @@
 #include "EnemiesEventFactory.h"
 
-IEvent* EnemiesEventFactory::createRat(int health, int damage, int gold, int passkey) {
-	Rat* rat = new Rat(this->field->get_player(), health, damage, gold, passkey);
-	return rat;
+
+IEvent* EnemiesEventFactory::createEnemy(EnemyToCreate enemy_to_create)
+{
+	IEvent* new_enemy = nullptr;
+	switch (enemy_to_create) {
+		case EnemyToCreate::RatEnemy: {
+			new_enemy = this->createRat();
+			break;
+		}
+		case EnemyToCreate::WarrionEnemy: {
+			new_enemy = this->createWarrion();
+			break;
+		}
+		case EnemyToCreate::BossEnemy: {
+			new_enemy = this->createBoss();
+			break;
+		}
+	}
+	return new_enemy;
 }
 
-IEvent* EnemiesEventFactory::createWarrion(int health, int damage, int gold, int passkey) {
-	Warrion* warrion = new Warrion(this->field->get_player(), health, damage, gold, passkey);
-	return warrion;
-}
-
-IEvent* EnemiesEventFactory::createBoss(int health, int damage, int gold, int passkey) {
-	Boss* boss = new Boss(this->field->get_player(), health, damage, gold, passkey);
-	return boss;
+IEvent* EnemiesEventFactory::createRat()
+{
+	//
+	std::random_device random_device;
+	std::default_random_engine generator(random_device());
+	//
+	std::uniform_int_distribution<int> random_health(10, 20);
+	std::uniform_int_distribution<int> random_damage(1, 3);
+	std::uniform_int_distribution<int> random_gold(5, 50);
+	std::uniform_int_distribution<int> random_passkey(0, 1);
+	return new Rat(
+		this->field->get_player(),
+		random_health(generator),
+		random_damage(generator),
+		random_gold(generator),
+		random_passkey(generator)
+	);
 }

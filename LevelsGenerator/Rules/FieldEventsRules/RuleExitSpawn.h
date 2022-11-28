@@ -2,12 +2,12 @@
 #include "../../../Background/Field.h"
 
 
-template <class Factory, int x, int y>
+template <int x, int y>
 class RuleExitSpawn
 {
 public:
 	void operator()(Field* field) {
-		Factory event_factory(field);
+		GameProcessEventFactory event_factory(field);
 		int cur_x = x % field->get_width();
 		int cur_y = y % field->get_height();
 		bool flag = false;

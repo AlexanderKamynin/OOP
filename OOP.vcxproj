@@ -179,6 +179,7 @@
     <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleMapEventSpawn.h" />
     <ClInclude Include="LevelsGenerator\Strategy\SecondLevel.h" />
     <ClInclude Include="LevelsGenerator\Rules\FieldEventsRules\RuleExitSpawn.h" />
+    <ClInclude Include="LevelsGenerator\Rules\EnemiesRules\RuleEnemies.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Control\Commands\Commands.cpp" />
