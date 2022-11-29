@@ -15,12 +15,13 @@ void CellView::draw_cell(Cell* cell) {
         else if (dynamic_cast<EnemiesEvents*>(cell->get_event())) {
             std::cout << enemiesCell;
         }
-        else if (dynamic_cast<Trap*>(cell->get_event())) {
-            std::cout << "Ы";
-        }
-        else if (dynamic_cast<CeilingCollapse*>(cell->get_event())) {
-            std::cout << "Ъ";
-        }
+        /*проверка создания ловушек на карте*/
+        //else if (dynamic_cast<Trap*>(cell->get_event())) {
+        //    std::cout << "Ы";
+        //}
+        //else if (dynamic_cast<CeilingCollapse*>(cell->get_event())) {
+        //    std::cout << "Ъ";
+        //}
         else if (dynamic_cast<ExitEvent*>(cell->get_event())) {
             if (dynamic_cast<ExitEvent*>(cell->get_event())->is_show()) {
                 std::cout << exitCell;

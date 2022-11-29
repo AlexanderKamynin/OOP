@@ -1,15 +1,14 @@
 #pragma once
-#include "../../../Background/Field.h"
-#include "../../../EventsFactory/MapEventFactory/MapEventFactory.h"
+#include "../../Background/Field.h"
 
 
-template<MapEventFactory::MapEventToCreate event, int count>
-class RuleMapEventSpawn
+template<int count>
+class RuleWallSpawn
 {
 public:
 	void operator()(Field* field) {
 		int current_count = 0;
-		MapEventFactory event_factory(field);
+		GameObjectEventFactory object_factory(field);
 		//
 		std::random_device random_device;
 		std::default_random_engine generator(random_device());
@@ -26,7 +25,7 @@ public:
 				&& field->get_player_position().first != x
 				&& field->get_player_position().second != y) {
 				current_count += 1;
-				field->get_field()[y][x]->set_event(event_factory.createMapEvent(event));
+				field->get_field()[y][x]->set_passability(false);
 			}
 		}
 	}

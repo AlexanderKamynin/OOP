@@ -1,6 +1,6 @@
 #pragma once
-#include "../../../Background/Field.h"
-#include "../../../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
+#include "../../Background/Field.h"
+#include "../../EventsFactory/GameObjectEventFactory/GameObjectEventFactory.h"
 
 
 template <GameObjectEventFactory::GameObjectToCreate object, int count>

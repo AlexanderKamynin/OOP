@@ -1,5 +1,6 @@
 #include "FirstLevel.h"
 
+
 Field* FirstLevel::generate_level()
 {
 	FieldGenerator<
@@ -16,7 +17,8 @@ Field* FirstLevel::generate_level()
 			std::make_pair(30, 50), std::make_pair(7, 10), std::make_pair(5, 500), 1>,
 		RuleObjectSpawn<GameObjectEventFactory::GameObjectToCreate::AltarObject, 1>,
 		RuleObjectSpawn<GameObjectEventFactory::GameObjectToCreate::LockedTreasureObject, 3>,
-		RuleObjectSpawn<GameObjectEventFactory::GameObjectToCreate::UnlockedTreasureObject, 3>
+		RuleObjectSpawn<GameObjectEventFactory::GameObjectToCreate::UnlockedTreasureObject, 3>,
+		RuleWallSpawn<7>
 	> generator;
 	return generator.generate();
 }

@@ -150,4 +150,5 @@ Controller::~Controller() {
     delete field;
     delete exit_event;
     delete defeat_event;
+    delete level_context;
 }

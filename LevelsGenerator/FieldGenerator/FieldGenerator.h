@@ -2,10 +2,11 @@
 #include "../../Background/Field.h"
 #include "../Rules/RuleFieldSize.h"
 #include "../Rules/RulePlayerSpawn.h"
-#include "../Rules/FieldEventsRules/RuleMapEventSpawn.h"
-#include "../Rules/FieldEventsRules/RuleExitSpawn.h"
-#include "../Rules/EnemiesRules/RuleEnemiesSpawn.h"
-#include "../Rules/GameObjectRules/RuleObjectSpawn.h"
+#include "../Rules/RuleMapEventSpawn.h"
+#include "../Rules/RuleExitSpawn.h"
+#include "../Rules/RuleEnemiesSpawn.h"
+#include "../Rules/RuleObjectSpawn.h"
+#include "../Rules/RuleWallSpawn.h"
 
 
 template<class... Rules>

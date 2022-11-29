@@ -6,10 +6,10 @@
 #include "../../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
 
 
-class ILevelStrategy
+class ILevel
 {
 public:
 	virtual Field* generate_level() = 0;
-	virtual ~ILevelStrategy() = 0 {};
+	virtual ~ILevel() = 0 {};
 };
 

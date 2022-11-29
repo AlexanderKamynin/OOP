@@ -1,6 +1,6 @@
 #pragma once
-#include "../../../Background/Field.h"
-#include "../../../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
+#include "../../Background/Field.h"
+#include "../../EventsFactory/GameProcessEventFactory/GameProcessEventFactory.h"
 
 
 template <int x, int y>

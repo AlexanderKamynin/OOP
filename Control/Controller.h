@@ -7,7 +7,7 @@
 #include "../Logging/ILogPrinter.h"
 #include "../Logging/FilePrinter.h"
 #include "../Logging/TerminalPrinter.h"
-#include "../LevelsGenerator/Strategy/LevelContext.h"
+#include "../LevelsGenerator/LevelContext.h"
 #include "../EnumClass.h"
 #include <string>
 
