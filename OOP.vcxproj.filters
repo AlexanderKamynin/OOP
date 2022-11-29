@@ -165,7 +165,10 @@
     <ClInclude Include="EventsFactory\IEventFactory.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="LevelsGenerator\Rules\EnemiesRules\RuleEnemies.h">
+    <ClInclude Include="LevelsGenerator\Rules\EnemiesRules\RuleEnemiesSpawn.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsGenerator\Rules\GameObjectRules\RuleObjectSpawn.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

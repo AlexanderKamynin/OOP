@@ -4,6 +4,8 @@
 #include "../Rules/RulePlayerSpawn.h"
 #include "../Rules/FieldEventsRules/RuleMapEventSpawn.h"
 #include "../Rules/FieldEventsRules/RuleExitSpawn.h"
+#include "../Rules/EnemiesRules/RuleEnemiesSpawn.h"
+#include "../Rules/GameObjectRules/RuleObjectSpawn.h"
 
 
 template<class... Rules>

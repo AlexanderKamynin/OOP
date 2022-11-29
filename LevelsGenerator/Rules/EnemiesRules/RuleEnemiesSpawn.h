@@ -1,15 +1,15 @@
 #pragma once
-#include "../../../Background/Field.h"
-#include "../../../EventsFactory/MapEventFactory/MapEventFactory.h"
+#include "../../../EventsFactory/EnemiesEventFactory/EnemiesEventFactory.h"
 
-
-template<MapEventFactory::MapEventToCreate event, int count>
-class RuleMapEventSpawn
+template <EnemiesEventFactory::EnemyToCreate enemy,
+	std::pair<int,int> health_range, std::pair<int,int> damage_range, std::pair<int,int> gold_range,
+	int count>
+class RuleEnemiesSpawn
 {
 public:
 	void operator()(Field* field) {
 		int current_count = 0;
-		MapEventFactory event_factory(field);
+		EnemiesEventFactory enemy_factory(field);
 		//
 		std::random_device random_device;
 		std::default_random_engine generator(random_device());
@@ -26,7 +26,7 @@ public:
 				&& field->get_player_position().first != x
 				&& field->get_player_position().second != y) {
 				current_count += 1;
-				field->get_field()[y][x]->set_event(event_factory.createMapEvent(event));
+				field->get_field()[y][x]->set_event(enemy_factory.createEnemy(enemy, health_range, damage_range, gold_range));
 			}
 		}
 	}

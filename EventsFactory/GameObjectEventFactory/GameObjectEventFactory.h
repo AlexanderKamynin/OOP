@@ -11,10 +11,19 @@ class GameObjectEventFactory : public IEventFactory
 public:
 	GameObjectEventFactory(Field* field) : IEventFactory(field) {};
 
+	enum GameObjectToCreate {
+		AltarObject,
+		LockedTreasureObject,
+		UnlockedTreasureObject
+	};
+
+	IEvent* createGameObject(GameObjectToCreate object_to_create);
+
+private:
 	IEvent* createAltar();
 
-	IEvent* createLockedTreasure(int gold = 100);
+	IEvent* createLockedTreasure();
 
-	IEvent* createUnlockedTreasure(int gold = 100);
+	IEvent* createUnlockedTreasure();
 };
 
